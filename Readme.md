@@ -1,0 +1,64 @@
+# Süz-Geç
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)
+![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-Deployed-green?style=flat&logo=vercel)
+
+---
+
+## Proje Hakkında
+
+![Ürün Tanıtım Görseli](Product.png)
+
+**Proje Tanımı:** 
+
+Akıllı fiyat karşılaştırma ve stok takip platformumuz Süzgeç, alışveriş deneyimini tamamen optimize etmek ve kullanıcıların en doğru kararı vermesini sağlamak amacıyla tasarlanmış modern bir dijital asistandır. Sistem; onlarca farklı e-ticaret sitesinden ürün verilerini anlık olarak analiz ederek, kullanıcıya gerçek zamanlı bir fiyat haritası sunar.
+
+Süzgeç, yalnızca bir arama motoru olmanın ötesine geçerek; kullanıcıların bütçe hedeflerine, takip listelerine ve kişisel tercihlerine göre özelleştirilmiş bir süreç yönetimi sağlar. Uygulama, karmaşık fiyat dalgalanmalarını takip etmek zorunda kalan kullanıcılar için fiyat geçmişi grafiklerini, stok alarmlarını ve hedef fiyat bildirimlerini tek bir merkezden sunar. Ayrıca kullanıcı dostu arayüzü sayesinde ürünleri teknik özelliklerine ve fiyat/performans dengesine göre kolayca karşılaştırma imkanı tanır.
+
+Bu bütünleşik yapı sayesinde kullanıcılar; zaman kaybetmeden, bütçelerine en uygun ürüne, en güvenilir satıcıdan ulaşabilirler. Süzgeç; dinamik, hızlı ve güvenilir altyapısıyla alışverişin her anında kullanıcının yanında olan kapsamlı bir ekosistemdir
+
+**Proje Kategorisi:** 
+> Alışveriş
+
+**Referans Uygulama:** 
+> 
+
+---
+
+## Proje Linkleri
+
+- **REST API Adresi:** [suzgecbackend.vercel.app](https://suzgecbackend.vercel.app/)
+- **Web Frontend Adresi:** [suzgec.vercel.app](https://suzgec.vercel.app/)
+
+---
+
+## Proje Ekibi
+
+**B²E** 
+
+
+**Ekip Üyeleri:** 
+- Berk Mutlu
+- Berra Kırış
+- Eda Nur Tarhan
+---
+
+## Dokümantasyon
+
+Proje dokümantasyonuna aşağıdaki linklerden erişebilirsiniz:
+
+1. [Gereksinim Analizi](Gereksinim-Analizi.md)
+2. [REST API Tasarımı](API-Tasarimi.md)
+3. [REST API](Rest-API.md)
+4. [Web Front-End](WebFrontEnd.md)
+5. [Mobil Front-End](MobilFrontEnd.md)
+6. [Mobil Backend](MobilBackEnd.md)
+7. [Video Sunum](Sunum.md)
+
+---
+

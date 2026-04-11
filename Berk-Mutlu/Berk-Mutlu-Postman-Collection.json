@@ -1,0 +1,278 @@
+{
+  "info": {
+    "name": "Berk Mutlu API Collection",
+    "description": "Süz-Geç Projesi - Kariyer / Karşılaştırma ve Arama Modülleri",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://suzgecbackend.vercel.app/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "JWT_TOKEN_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "USER_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "PRODUCT_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "itemId",
+      "value": "ITEM_ID_BURAYA",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@suzgec.com\",\n  \"password\": \"GuvenliSifre123\",\n  \"firstName\": \"Berk\",\n  \"lastName\": \"Mutlu\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "auth", "register" ]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@suzgec.com\",\n  \"password\": \"GuvenliSifre123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "auth", "login" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Search History",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/history/searches",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "users", "history", "searches" ]
+            }
+          }
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/{{userId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "users", "{{userId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Berk Ege\",\n  \"lastName\": \"Mutlu\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/users/{{userId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "users", "{{userId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Delete Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users/{{userId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "users", "{{userId}}" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Public Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/search/public?q=laptop",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "products", "search", "public" ],
+              "query": [ { "key": "q", "value": "laptop" } ]
+            }
+          }
+        },
+        {
+          "name": "Authenticated Search",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/search?q=laptop",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "products", "search" ],
+              "query": [ { "key": "q", "value": "laptop" } ]
+            }
+          }
+        },
+        {
+          "name": "Get Product Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "products", "{{productId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Get Sellers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}/sellers",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "products", "{{productId}}", "sellers" ]
+            }
+          }
+        },
+        {
+          "name": "Resolve Ad URL",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/products/{{productId}}/resolve-url",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "products", "{{productId}}", "resolve-url" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Comparisons",
+      "item": [
+        {
+          "name": "Get Comparison Board",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/comparisons",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "comparisons" ]
+            }
+          }
+        },
+        {
+          "name": "Add Item to Comparison",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/comparisons/items",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "comparisons", "items" ]
+            }
+          }
+        },
+        {
+          "name": "Remove Item from Comparison",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/comparisons/items/{{itemId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "comparisons", "items", "{{itemId}}" ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

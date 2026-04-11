@@ -1,0 +1,743 @@
+# Süz-Geç API Tasarımı - OpenAPI Specification
+
+Bu doküman, **Süz-Geç** projesi için OpenAPI Specification (OAS) 3.0 standardına göre hazırlanmış API tasarımını içermektedir. Süz-Geç, kullanıcıların ürünleri takip etmesini, listeler oluşturmasını ve fiyat/stok alarmları kurmasını sağlayan bir platformdur.
+
+## OpenAPI Specification
+
+```yaml
+openapi: 3.0.3
+info:
+  title: Süz-Geç API
+  description: |
+    Süz-Geç platformu için RESTful API.
+    
+    ## Özellikler
+    - Kullanıcı ve Karşılaştırma, Arama Modülü (Berk)
+    - Liste Yönetimi ve Yorum/Değerlendirme Modülü (Eda)
+    - Stok, Fiyat Takip ve Bildirim Modülü (Berra)
+    - JWT tabanlı kimlik doğrulama
+  version: 1.0.0
+contact:
+  name: Süz-Geç Geliştirme Ekibi
+  email: destek@suzgec.com
+license:
+  name: MIT
+
+servers:
+  - url: https://suzgecbackend.vercel.app/v1
+    description: Production server
+  - url: http://localhost:3000/v1
+    description: Development server
+
+tags:
+  - name: auth
+    description: Kimlik doğrulama işlemleri (Berk)
+  - name: users
+    description: Kullanıcı profil ve geçmiş işlemleri (Berk)
+  - name: products
+    description: Ürün arama ve detay işlemleri (Berk)
+  - name: comparisons
+    description: Karşılaştırma panosu işlemleri (Berk)
+  - name: lists
+    description: Liste yönetimi işlemleri (Eda)
+  - name: reviews
+    description: Ürün yorum ve değerlendirme işlemleri (Eda)
+  - name: stock-alerts
+    description: Stok takip işlemleri (Berra)
+  - name: price-alerts
+    description: Fiyat alarm işlemleri (Berra)
+  - name: notifications
+    description: Bildirim merkezi işlemleri (Berra)
+
+paths:
+  # ==========================================
+  # --- BERK: Kullanıcı, Arama ve Karşılaştırma ---
+  # ==========================================
+  
+  /auth/register:
+    post:
+      tags: [auth]
+      summary: Üye olma
+      description: Yeni kullanıcı kaydı. (Berk)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+      responses:
+        '201':
+          description: Kayıt başarılı
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /auth/login:
+    post:
+      tags: [auth]
+      summary: Giriş yapma
+      description: Kullanıcı girişi ve JWT token üretimi. (Berk)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Giriş başarılı (Token döner)
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /users/history/searches:
+    get:
+      tags: [users]
+      summary: Arama geçmişi
+      description: Kullanıcının arama geçmişini döner. (Berk)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {type: string}
+
+  /users/{userId}:
+    get:
+      tags: [users]
+      summary: Profil görüntüleme
+      description: Kullanıcı profilini getirir. (Berk)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      tags: [users]
+      summary: Profil güncelleme
+      description: Profil bilgilerini günceller. (Berk)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Güncelleme başarılı
+    delete:
+      tags: [users]
+      summary: Hesap silme
+      description: Hesabı kalıcı siler. (Berk)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Hesap silindi
+
+  /products/search/public:
+    get:
+      tags: [products]
+      summary: Açık ürün araması (Ana Sayfa)
+      description: Giriş yapmamış kullanıcılar için genel arama/feed. (Berk)
+      parameters:
+        - name: q
+          in: query
+          description: Arama metni
+          required: false
+          schema: {type: string}
+      responses:
+        '200':
+          description: Başarılı liste
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/ProductSummary'}
+
+  /products/search:
+    get:
+      tags: [products]
+      summary: Ürün arama
+      description: Giriş yapmış kullanıcılar için arama ve geçmiş kaydı. (Berk)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema: {type: string}
+      responses:
+        '200':
+          description: Başarılı liste
+
+  /products/{productId}:
+    get:
+      tags: [products]
+      summary: Ürün detayı
+      description: Ürün detay bilgisi. (Berk)
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetail'
+
+  /products/{productId}/sellers:
+    get:
+      tags: [products]
+      summary: Ürün satıcıları
+      description: Ürünü satan siteler ve fiyatlar listesi. (Berk)
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Başarılı
+
+  /products/{productId}/resolve-url:
+    post:
+      tags: [products]
+      summary: Link Çözümleme
+      description: Ürünün satıcı yönlendirme linkini çözer. (Berk)
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Satıcı URL'i döner
+
+  /comparisons:
+    get:
+      tags: [comparisons]
+      summary: Karşılaştırma panosunu görüntüle
+      description: Kullanıcının kıyasladığı ürünleri listeler. (Berk)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı liste
+
+  /comparisons/items:
+    post:
+      tags: [comparisons]
+      summary: Karşılaştırmaya ekle
+      description: Ürünü karşılaştırma panosuna ekler. (Berk)
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [productId]
+              properties:
+                productId: {type: string, format: uuid}
+      responses:
+        '201':
+          description: Eklendi
+
+  /comparisons/items/{itemId}:
+    delete:
+      tags: [comparisons]
+      summary: Karşılaştırmadan çıkar
+      description: Ürünü karşılaştırma panosundan çıkarır. (Berk)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: itemId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Kaldırıldı
+
+  # ==========================================
+  # --- EDA: Liste ve Yorum (Review) Modülü ---
+  # ==========================================
+  
+  /lists:
+    get:
+      tags: [lists]
+      summary: Listeleri görüntüleme
+      description: Kullanıcının oluşturduğu tüm listeleri görmesini sağlar. (Eda)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/ListSummary'}
+    post:
+      tags: [lists]
+      summary: Liste oluşturma
+      description: Gruplama için sisteme yeni bir liste ekler. (Eda)
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties: {name: {type: string}, color: {type: string}, icon: {type: string}}
+      responses:
+        '201':
+          description: Liste oluşturuldu
+
+  /lists/{listId}:
+    get:
+      tags: [lists]
+      summary: Liste içeriği
+      description: Liste içindeki ürünleri getirir. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: listId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Başarılı
+    put:
+      tags: [lists]
+      summary: Liste ismi güncelleme
+      description: Listenin adını veya detaylarını değiştirir. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: listId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {name: {type: string}, color: {type: string}}
+      responses:
+        '200':
+          description: Güncellendi
+    delete:
+      tags: [lists]
+      summary: Liste silme
+      description: Listeyi siler. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: listId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Liste silindi
+
+  /lists/{listId}/items:
+    post:
+      tags: [lists]
+      summary: Listeye ürün ekleme
+      description: Ürünü listeye dahil eder. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: listId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [productId]
+              properties: {productId: {type: string, format: uuid}}
+      responses:
+        '201':
+          description: Ürün eklendi
+
+  /lists/{listId}/items/{itemId}:
+    delete:
+      tags: [lists]
+      summary: Listeden ürün silme
+      description: Ürünü listeden çıkarır. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: listId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+        - name: itemId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Ürün çıkarıldı
+
+  /reviews/{productId}:
+    get:
+      tags: [reviews]
+      summary: Ürün yorumlarını görüntüleme
+      description: Ürünün geçmiş kullanıcı yorumlarını getirir. (Eda)
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Başarılı liste
+    post:
+      tags: [reviews]
+      summary: Ürün yorumu ekleme
+      description: Ürüne yıldız ve yorum metni kaydeder. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '201':
+          description: Yorum eklendi
+
+  /reviews/{reviewId}:
+    put:
+      tags: [reviews]
+      summary: Yorum güncelleme
+      description: Yorumu/puanı düzenler. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        '200':
+          description: Başarılı güncelleme
+    delete:
+      tags: [reviews]
+      summary: Yorum silme
+      description: Yorumu tamamen siler. (Eda)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: reviewId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Silme başarılı
+
+  # ==========================================
+  # --- BERRA: Stok, Fiyat ve Bildirim Modülü ---
+  # ==========================================
+  
+  /stock-alerts:
+    get:
+      tags: [stock-alerts]
+      summary: Stok takip listesi görüntüleme
+      description: Stok durumunu takip ettiği ürünleri listeler. (Berra)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/StockAlert'}
+    post:
+      tags: [stock-alerts]
+      summary: Stok takibine ürün ekleme
+      description: Takibe alır. (Berra)
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [productId]
+              properties: {productId: {type: string, format: uuid}}
+      responses:
+        '201':
+          description: Takibe alındı
+
+  /stock-alerts/{alertId}:
+    delete:
+      tags: [stock-alerts]
+      summary: Stok takibinden ürün silme
+      description: İptal eder. (Berra)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: İptal edildi
+
+  /price-alerts:
+    get:
+      tags: [price-alerts]
+      summary: Fiyat alarmı görüntüleme
+      description: Limit altı alarmları listeler. (Berra)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/PriceAlert'}
+    post:
+      tags: [price-alerts]
+      summary: Fiyat alarmı ekleme
+      description: Alarm kurar. (Berra)
+      security: [{bearerAuth: []}]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [productId, targetPrice]
+              properties:
+                productId: {type: string, format: uuid}
+                targetPrice: {type: number, format: float}
+      responses:
+        '201':
+          description: Alarm kuruldu
+
+  /price-alerts/{alertId}:
+    put:
+      tags: [price-alerts]
+      summary: Fiyat alarmı güncelleme
+      description: Hedef fiyatı değiştirir. (Berra)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                targetPrice: {type: number, format: float}
+      responses:
+        '200':
+          description: Güncellendi
+    delete:
+      tags: [price-alerts]
+      summary: Fiyat alarmı silme
+      description: İptal eder. (Berra)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Alarm silindi
+
+  /notifications:
+    get:
+      tags: [notifications]
+      summary: Bildirimleri Görüntüleme
+      description: Kullanıcının bildirim (fiyat düştü vb) loglarını döner. (Berra)
+      security: [{bearerAuth: []}]
+      responses:
+        '200':
+          description: Başarılı
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {$ref: '#/components/schemas/Notification'}
+
+  /notifications/{id}/read:
+    put:
+      tags: [notifications]
+      summary: Bildirim Okuma
+      description: Bildirimi okundu olarak işaretler. (Berra)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: Okundu
+
+  /notifications/{id}:
+    delete:
+      tags: [notifications]
+      summary: Bildirim Silme
+      description: Bildirimi siler. (Berra)
+      security: [{bearerAuth: []}]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '204':
+          description: Silindi
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    UserRegister:
+      type: object
+      required: [email, password]
+      properties:
+        email: {type: string, format: email}
+        password: {type: string, minLength: 8}
+        firstName: {type: string}
+        lastName: {type: string}
+        
+    UserLogin:
+      type: object
+      required: [email, password]
+      properties:
+        email: {type: string, format: email}
+        password: {type: string}
+
+    UserProfile:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        email: {type: string, format: email}
+        firstName: {type: string}
+        lastName: {type: string}
+
+    UserUpdate:
+      type: object
+      properties:
+        firstName: {type: string}
+        lastName: {type: string}
+        email: {type: string, format: email}
+
+    ProductDetail:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        name: {type: string}
+        price: {type: number, format: float}
+        imageUrl: {type: string, format: uri}
+
+    ProductSummary:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        name: {type: string}
+        price: {type: number, format: float}
+
+    ListSummary:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        name: {type: string}
+        itemCount: {type: integer}
+
+    Review:
+      type: object
+      properties:
+        rating: {type: number}
+        comment: {type: string}
+
+    Notification:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        title: {type: string}
+        message: {type: string}
+        isRead: {type: boolean}
+
+    StockAlert:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        productId: {type: string, format: uuid}
+        productName: {type: string}
+
+    PriceAlert:
+      type: object
+      properties:
+        id: {type: string, format: uuid}
+        productId: {type: string, format: uuid}
+        targetPrice: {type: number, format: float}
+
+  responses:
+    BadRequest:
+      description: Geçersiz istek
+    Unauthorized:
+      description: Yetkisiz erişim
+```
+
+### Yapay Zeka Karşılaştırma Analizi (Berra Kırış)
+- **Endpoint:** `POST /api/v1/ai/compare`
+- **Açıklama:** Seçilen ürün listesini Gemini AI modeline ileterek analiz yanıtı döndürür.
+- **Authentication:** Gerekli (Bearer Token)
+- **Response:** `200 OK`
+  ```json
+  { "success": true, "advice": "markdown tabanlı detaylı yapay zeka tavsiyesi" }
+  ```

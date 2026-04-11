@@ -1,0 +1,378 @@
+{
+  "info": {
+    "name": "Berra Kırış API Collection",
+    "description": "Süz-Geç Projesi - Fiyat/Stok Alarmları ve Bildirim Modülleri",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://suzgecbackend.vercel.app/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "JWT_TOKEN_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "PRODUCT_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "alertId",
+      "value": "ALERT_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "notificationId",
+      "value": "NOTIFICATION_ID_BURAYA",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Stock Alerts",
+      "item": [
+        {
+          "name": "Get Stock Alerts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stock-alerts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stock-alerts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Stock Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/stock-alerts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stock-alerts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Stock Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stock-alerts/{{alertId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stock-alerts",
+                "{{alertId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Price Alerts",
+      "item": [
+        {
+          "name": "Get Price Alerts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/price-alerts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "price-alerts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Price Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"targetPrice\": 15000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/price-alerts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "price-alerts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Price Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetPrice\": 14500\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/price-alerts/{{alertId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "price-alerts",
+                "{{alertId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Price Alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/price-alerts/{{alertId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "price-alerts",
+                "{{alertId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Get Notifications",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notifications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Mark Notification Read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notifications/{{notificationId}}/read",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications",
+                "{{notificationId}}",
+                "read"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Notification",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notifications/{{notificationId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notifications",
+                "{{notificationId}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Compare Products",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"products\": [\n        {\n            \"name\": \"iPhone 15\",\n            \"price\": 45000\n        },\n        {\n            \"name\": \"Samsung S24\",\n            \"price\": 43000\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/ai/compare",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "v1",
+            "ai",
+            "compare"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

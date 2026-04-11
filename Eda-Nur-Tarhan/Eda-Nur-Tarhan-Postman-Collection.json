@@ -1,0 +1,243 @@
+{
+  "info": {
+    "name": "Eda Nur Tarhan API Collection",
+    "description": "Süz-Geç Projesi - Liste Yönetimi ve Yorum/Değerlendirme Modülleri",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://suzgecbackend.vercel.app/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "JWT_TOKEN_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "listId",
+      "value": "LIST_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "PRODUCT_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "itemId",
+      "value": "ITEM_ID_BURAYA",
+      "type": "string"
+    },
+    {
+      "key": "reviewId",
+      "value": "REVIEW_ID_BURAYA",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Lists",
+      "item": [
+        {
+          "name": "Get All Lists",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/lists",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists" ]
+            }
+          }
+        },
+        {
+          "name": "Create List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Favori Laptoplar\",\n  \"color\": \"#FF0000\",\n  \"icon\": \"laptop\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/lists",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists" ]
+            }
+          }
+        },
+        {
+          "name": "Get List Details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/lists/{{listId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists", "{{listId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Update List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Güncel Laptop Listem\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/lists/{{listId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists", "{{listId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Delete List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/lists/{{listId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists", "{{listId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Add Item to List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"{{productId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/lists/{{listId}}/items",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists", "{{listId}}", "items" ]
+            }
+          }
+        },
+        {
+          "name": "Remove Item from List",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/lists/{{listId}}/items/{{itemId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "lists", "{{listId}}", "items", "{{itemId}}" ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Get Product Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{productId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "reviews", "{{productId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Add Product Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Harika bir ürün, kesinlikle tavsiye ederim!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{productId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "reviews", "{{productId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 4,\n  \"comment\": \"Güzel ama kargo geç geldi.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "reviews", "{{reviewId}}" ]
+            }
+          }
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [ { "key": "token", "value": "{{token}}", "type": "string" } ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/reviews/{{reviewId}}",
+              "host": [ "{{baseUrl}}" ],
+              "path": [ "reviews", "{{reviewId}}" ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
