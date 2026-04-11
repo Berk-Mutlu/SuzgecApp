@@ -1,4 +1,5 @@
-"use client"
+"use client"
+
 import { motion } from "framer-motion"
 import {
     ArrowLeft,
@@ -39,7 +40,8 @@ import { AddToListDialog } from "@/components/list/AddToListDialog"
 import { AddPriceAlertDialog } from "@/components/alerts/AddPriceAlertDialog"
 import { getSellerDisplayInfo } from "@/lib/sellerLogos"
 import { ShareProductDialog } from "@/components/product/ShareProductDialog"
-import { ProductReviews } from "@/components/product/ProductReviews"
+import { ProductReviews } from "@/components/product/ProductReviews"
+
 export function ProductDetailClient({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params)
     const router = useRouter()
@@ -102,7 +104,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
             el.removeEventListener('touchmove', onTouchMove);
             el.removeEventListener('touchend', onTouchEnd);
         };
-    }, [product, selectedImage])
+    }, [product, selectedImage])
+
     const scrollThumbnails = (direction: 'left' | 'right') => {
         if (thumbnailRef.current) {
             const scrollAmount = 100;
@@ -111,22 +114,33 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                 behavior: 'smooth'
             });
         }
-    }
+    }
+
     const handleAdUrlClick = async (seller: any) => {
         setRedirectingSeller(seller.siteName);
-        try {
+        // Safari iOS blocks window.open() after async/await (no longer in user gesture context).
+        // Open a blank window synchronously, then update its URL after the API call.
+        const newWindow = window.open("about:blank", "_blank");
+        try {
             const res = await api.resolveAdUrl(id, seller.buyUrl, seller.siteName);
-            if (res.success && res.url) {
-                window.open(res.url, "_blank");
+            const targetUrl = (res.success && res.url) ? res.url : seller.buyUrl;
+            if (newWindow && !newWindow.closed) {
+                newWindow.location.href = targetUrl;
             } else {
-                window.open(seller.buyUrl, "_blank");
+                // Fallback: if popup was still blocked, navigate in current tab
+                window.location.href = targetUrl;
             }
         } catch {
-            window.open(seller.buyUrl, "_blank");
+            if (newWindow && !newWindow.closed) {
+                newWindow.location.href = seller.buyUrl;
+            } else {
+                window.location.href = seller.buyUrl;
+            }
         } finally {
             setRedirectingSeller(null);
         }
-    }
+    }
+
     const handlePriceAlert = async () => {
         const token = localStorage.getItem('token')
         if (!token) {
@@ -135,7 +149,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
             return
         }
         setIsPriceAlertOpen(true)
-    }
+    }
+
     const handleAddToList = async (listId: string) => {
         try {
             const res = await api.addProductToList(listId, id)
@@ -148,14 +163,16 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
         } catch (error) {
             showToast("Giriş yapmanız gerekiyor.", "error")
         }
-    }
+    }
+
     const handleAddToComparison = async () => {
         const token = localStorage.getItem('token')
         if (!token) {
             showToast("Giriş yapmanız gerekiyor.", "error")
             router.push('/giris?returnUrl=' + encodeURIComponent(window.location.pathname))
             return
-        }
+        }
+
         try {
             const res = await api.addToComparison(id)
             if (res.success) {
@@ -167,7 +184,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
         } catch (error) {
             showToast("İşlem başarısız oldu.", "error")
         }
-    }
+    }
+
     const handleAddToListTrigger = () => {
         const token = localStorage.getItem('token')
         if (!token) {
@@ -176,7 +194,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
             return
         }
         setIsAddListOpen(true)
-    }
+    }
+
     const handleStockAlert = async () => {
         const token = localStorage.getItem('token')
         if (!token) {
@@ -194,7 +213,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
         } catch (error) {
             showToast("İşlem başarısız oldu.", "error")
         }
-    }
+    }
+
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'instant' });
     }, []);
@@ -230,7 +250,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
             }
             setLoading(false);
         });
-    }, [id])
+    }, [id])
+
     if (loading) {
         return (
             <div className="px-4 py-32 text-center max-md:py-8 max-md:min-h-[60vh] max-md:flex max-md:items-center max-md:justify-center">
@@ -254,7 +275,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                 </motion.div>
             </div>
         )
-    }
+    }
+
     if (!product) {
         return (
             <div className="px-4 sm:px-6 py-24 text-center">
@@ -278,7 +300,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                 </motion.div>
             </div>
         )
-    }
+    }
+
     return (
         <div className="px-4 sm:px-6 py-6 pb-12">
             {}
@@ -298,7 +321,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                     <span className="shrink-0">Arama &gt; {product.category} &gt;</span>
                     <span className="text-foreground truncate font-medium">{product.name}</span>
                 </span>
-            </motion.div>
+            </motion.div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {}
                 <motion.div
@@ -330,7 +354,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                                 product.category === "Televizyon" ? "📺" :
                                                     product.category === "Kulaklık" ? "🎧" :
                                                         product.category === "Oyun Konsolu" ? "🎮" : "📦"}
-                                    </span>
+                                    </span>
+
                                     {}
                                     {product.imageUrls && product.imageUrls.length > 1 && (
                                         <>
@@ -366,7 +391,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                             </button>
                                         </>
                                     )}
-                                </div>
+                                </div>
+
                                 {}
                                 {product.imageUrls && product.imageUrls.length > 1 && (
                                     <div className="w-[62px] border-l border-border/40 bg-muted/20 flex flex-col relative group/thumbs max-md:w-full max-md:border-l-0 max-md:border-t max-md:flex-row max-md:h-[54px]">
@@ -380,7 +406,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                             className="absolute top-0 left-0 right-0 z-10 h-6 bg-gradient-to-b from-background/90 to-transparent flex items-center justify-center opacity-0 group-hover/thumbs:opacity-100 transition-opacity max-md:hidden"
                                         >
                                             <ChevronLeft className="h-3 w-3 rotate-90" />
-                                        </button>
+                                        </button>
+
                                         <div
                                             ref={thumbnailRef}
                                             className="flex-1 flex flex-col gap-1.5 p-1.5 overflow-y-auto max-md:flex-row max-md:overflow-x-auto max-md:overflow-y-hidden"
@@ -390,7 +417,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                                 <button
                                                     key={i}
                                                     onClick={() => {
-                                                        setSelectedImage(img);
+                                                        setSelectedImage(img);
+
                                                         if (thumbnailRef.current) {
                                                             const thumbEl = thumbnailRef.current.children[i] as HTMLElement;
                                                             if (thumbEl) {
@@ -404,7 +432,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                                     <img src={img} alt="" className="w-full h-full object-cover" />
                                                 </button>
                                             ))}
-                                        </div>
+                                        </div>
+
                                         {}
                                         <button
                                             onClick={() => {
@@ -418,7 +447,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                         </button>
                                     </div>
                                 )}
-                            </div>
+                            </div>
+
                             {}
                             <div className="p-4 border-t border-border/50">
                                 <div className="flex items-start justify-between gap-2">
@@ -443,13 +473,15 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                             <Share2 className="h-4 w-4" />
                                         </Button>
                                     </div>
-                                </div>
+                                </div>
+
                                 {product.priceChange && product.priceChange < 0 && (
                                     <Badge className="mt-2 bg-suzgec-success border-0 text-white">
                                         <TrendingDown className="h-3 w-3 mr-1" />
                                         %{Math.abs(product.priceChange).toFixed(1)} indirimli
                                     </Badge>
-                                )}
+                                )}
+
                                 <div className="flex items-end justify-between mt-3">
                                     <div>
                                         {product.sellers?.length > 0 ? (
@@ -498,7 +530,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                 </div>
                             </div>
                         </Card>
-                </motion.div>
+                </motion.div>
+
                 {}
                 <div className="flex flex-col gap-4">
                     {}
@@ -518,7 +551,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                     <Bell className="h-4 w-4 mr-2" />
                                     Stoka Gelince Haber Ver
                                 </Button>
-                            )}
+                            )}
+
                             <Button 
                                 onClick={handlePriceAlert}
                                 variant="outline"
@@ -526,7 +560,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                             >
                                 <TrendingDown className="h-4 w-4 mr-2" />
                                 Fiyat Alarmı Kur
-                            </Button>
+                            </Button>
+
                             <Button 
                                 onClick={() => setIsAddListOpen(true)}
                                 variant="outline" 
@@ -534,7 +569,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                             >
                                 <Heart className="h-4 w-4 mr-2" />
                                 Listeye Ekle
-                            </Button>
+                            </Button>
+
                             <Button 
                                 onClick={handleAddToComparison}
                                 variant="outline" 
@@ -550,7 +586,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                             onOpenChange={setIsAddListOpen} 
                             productName={product.name}
                         />
-                    </Card>
+                    </Card>
+
                     {}
                     <Card className="p-3 border-border/50 flex-1 flex flex-col">
                         <h3 className="text-sm font-semibold mb-1 flex items-center gap-2">
@@ -599,7 +636,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                             </ResponsiveContainer>
                         </div>
                     </Card>
-                </div>
+                </div>
+
                 {}
                 <motion.div
                     className="lg:col-span-2 flex flex-col gap-6"
@@ -641,7 +679,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                                                                         alt={sellerInfo.displayName}
                                                                         className="h-5 w-5 object-contain"
                                                                         onError={(e) => {
-                                                                            const target = e.target as HTMLImageElement;
+                                                                            const target = e.target as HTMLImageElement;
+
                                                                             if (!target.dataset.fallback) {
                                                                                 target.dataset.fallback = '1';
                                                                                 const domain = seller.siteName.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
@@ -729,7 +768,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                         </Card>
                         {}
                         <ProductReviews productId={product._id || product.id} />
-                </motion.div>
+                </motion.div>
+
                 {}
                     <motion.div
                     initial={{ opacity: 0, x: 15 }}
@@ -756,7 +796,8 @@ export function ProductDetailClient({ params }: { params: Promise<{ id: string }
                             </div>
                         </Card>
                 </motion.div>
-            </div>
+            </div>
+
             <AddPriceAlertDialog 
                 productId={product._id || product.id}
                 isOpen={isPriceAlertOpen}
