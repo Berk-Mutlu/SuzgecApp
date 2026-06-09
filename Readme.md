@@ -2,7 +2,7 @@
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)
 ![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)
-![React Native](https://img.shields.io/badge/React_Native-Expo_54-61DAFB?style=flat&logo=react)
+![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=flat&logo=capacitor&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express)
@@ -59,7 +59,7 @@ Bu bütünleşik yapı sayesinde kullanıcılar; zaman kaybetmeden, bütçelerin
 | Katman | Teknoloji |
 |--------|-----------|
 | **Web Frontend** | Next.js 16, React 19, Tailwind CSS, shadcn/ui, Framer Motion |
-| **Mobil Uygulama** | React Native (Expo 54), TypeScript |
+| **Mobil Uygulama** | Capacitor (Next.js WebView → Android APK) |
 | **Backend API** | Node.js, Express.js |
 | **Veritabanı** | MongoDB Atlas (Mongoose ODM) |
 | **Önbellek** | Redis (ioredis) — API sonuç önbellekleme, JWT kara listeleme |
