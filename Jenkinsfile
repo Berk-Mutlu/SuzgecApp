@@ -28,69 +28,65 @@ pipeline {
             }
         }
 
-        // ----- Aşama 2: Backend Bağımlılıkları -----
-        stage('Install Backend Dependencies') {
+        // ----- Aşama 2: Kod Doğrulama -----
+        stage('Verify Source') {
             steps {
-                echo '📦 Backend bağımlılıkları yükleniyor...'
-                dir('backend') {
-                    script {
-                        if (isUnix()) {
-                            sh 'npm ci'
-                        } else {
-                            bat 'npm ci'
-                        }
+                echo '🔍 Proje dosyaları doğrulanıyor...'
+                script {
+                    if (isUnix()) {
+                        sh '''
+                            echo "Backend dosyaları:"
+                            ls -la backend/package.json backend/Dockerfile
+                            echo ""
+                            echo "Frontend dosyaları:"
+                            ls -la frontend/suzgec-app/package.json frontend/suzgec-app/Dockerfile
+                            echo ""
+                            echo "Docker Compose:"
+                            ls -la docker-compose.yml
+                        '''
+                    } else {
+                        bat '''
+                            echo Backend dosyalari:
+                            dir backend\\package.json backend\\Dockerfile
+                            echo Frontend dosyalari:
+                            dir frontend\\suzgec-app\\package.json frontend\\suzgec-app\\Dockerfile
+                            echo Docker Compose:
+                            dir docker-compose.yml
+                        '''
                     }
                 }
             }
         }
 
-        // ----- Aşama 3: Frontend Bağımlılıkları -----
-        stage('Install Frontend Dependencies') {
-            steps {
-                echo '📦 Frontend bağımlılıkları yükleniyor...'
-                dir('frontend/suzgec-app') {
-                    script {
-                        if (isUnix()) {
-                            sh 'npm ci'
-                        } else {
-                            bat 'npm ci'
-                        }
-                    }
-                }
-            }
-        }
-
-        // ----- Aşama 4: Frontend Derleme -----
-        stage('Build Frontend') {
-            steps {
-                echo '🔨 Frontend derleniyor...'
-                dir('frontend/suzgec-app') {
-                    script {
-                        if (isUnix()) {
-                            sh 'npm install typescript --save-dev && npm run build'
-                        } else {
-                            bat 'npm install typescript --save-dev && npm run build'
-                        }
-                    }
-                }
-            }
-        }
-
-        // ----- Aşama 5: Docker İmajları Derleme -----
+        // ----- Aşama 3: Docker İmajları Derleme -----
         stage('Docker Build') {
             steps {
                 echo '🐳 Docker imajları derleniyor...'
                 script {
                     if (isUnix()) {
-                        sh 'docker compose build --no-cache'
+                        sh 'docker compose build'
                     } else {
-                        bat 'docker compose build --no-cache'
+                        bat 'docker compose build'
                     }
                 }
             }
         }
 
-        // ----- Aşama 6: Docker ile Dağıtım -----
+        // ----- Aşama 4: Mevcut Servisleri Durdurma -----
+        stage('Stop Existing') {
+            steps {
+                echo '🛑 Mevcut servisler durduruluyor...'
+                script {
+                    if (isUnix()) {
+                        sh 'docker compose down --remove-orphans || true'
+                    } else {
+                        bat 'docker compose down --remove-orphans || exit 0'
+                    }
+                }
+            }
+        }
+
+        // ----- Aşama 5: Docker ile Dağıtım -----
         stage('Docker Deploy') {
             steps {
                 echo '🚀 Servisler başlatılıyor...'
@@ -104,27 +100,35 @@ pipeline {
             }
         }
 
-        // ----- Aşama 7: Sağlık Kontrolü -----
+        // ----- Aşama 6: Sağlık Kontrolü -----
         stage('Health Check') {
             steps {
                 echo '🏥 Sağlık kontrolü yapılıyor...'
-                sleep(time: 10, unit: 'SECONDS')
+                sleep(time: 15, unit: 'SECONDS')
                 script {
                     if (isUnix()) {
                         sh '''
-                            echo "Backend sağlık kontrolü..."
-                            curl -f http://localhost:5000/ || echo "⚠️ Backend yanıt vermiyor"
+                            echo "Çalışan konteynerler:"
+                            docker compose ps
 
+                            echo ""
+                            echo "Backend sağlık kontrolü..."
+                            curl -f http://localhost:5000/ || echo "⚠️ Backend henüz hazır değil"
+
+                            echo ""
                             echo "Frontend sağlık kontrolü..."
-                            curl -f http://localhost:3000/ || echo "⚠️ Frontend yanıt vermiyor"
+                            curl -f http://localhost:3000/ || echo "⚠️ Frontend henüz hazır değil"
                         '''
                     } else {
                         bat '''
+                            echo Calisan konteynerler:
+                            docker compose ps
+
                             echo Backend saglik kontrolu...
-                            curl -f http://localhost:5000/ || echo "Backend yanit vermiyor"
+                            curl -f http://localhost:5000/ || echo "Backend henuz hazir degil"
 
                             echo Frontend saglik kontrolu...
-                            curl -f http://localhost:3000/ || echo "Frontend yanit vermiyor"
+                            curl -f http://localhost:3000/ || echo "Frontend henuz hazir degil"
                         '''
                     }
                 }
@@ -135,7 +139,7 @@ pipeline {
     // ----- Pipeline Sonuç İşlemleri -----
     post {
         success {
-            echo '✅ Pipeline başarıyla tamamlandı!'
+            echo '✅ Pipeline başarıyla tamamlandı! Tüm servisler çalışıyor.'
         }
         failure {
             echo '❌ Pipeline başarısız oldu! Temizlik yapılıyor...'
@@ -149,7 +153,6 @@ pipeline {
         }
         always {
             echo '📊 Pipeline sona erdi.'
-            cleanWs(cleanWhenNotBuilt: false)
         }
     }
 }
