@@ -60,6 +60,14 @@ export const api = {
     return res.json();
   },
 
+  async logout() {
+    const res = await fetch(`${API_URL}/auth/logout`, {
+      method: 'POST',
+      headers: this.getHeaders(),
+    });
+    return res.json();
+  },
+
   async getUserProfile(userId: string) {
     const res = await fetch(`${API_URL}/users/${userId}`, { headers: this.getHeaders() });
     return res.json();

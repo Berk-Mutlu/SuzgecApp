@@ -32,6 +32,10 @@ COPY . .
 # Next.js telemetriyi devre dışı bırak
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# API URL'sini build sırasında göm (tarayıcıdan erişim için localhost)
+ARG NEXT_PUBLIC_API_URL=http://localhost:5000/v1
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 # Üretim derlemesi oluştur
 RUN npm run build
 

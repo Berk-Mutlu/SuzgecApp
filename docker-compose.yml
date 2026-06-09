@@ -75,12 +75,14 @@ services:
       rabbitmq:
         condition: service_healthy
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/suzgecdb
+      - MONGO_URI=mongodb+srv://SuzgecBerk:XKYGj2hoBB8irtBr@suzgeccluster.yatgzfh.mongodb.net/suzgecdb?retryWrites=true&w=majority&appName=SuzgecCluster
       - REDIS_URL=redis://redis:6379
       - RABBITMQ_URL=amqp://rabbitmq:5672
       - JWT_SECRET=${JWT_SECRET:-super-secret-key-degistirin}
       - NODE_ENV=development
       - PORT=9000
+      - DATAFORSEO_LOGIN=iam.berkmutlu@gmail.com
+      - DATAFORSEO_PASSWORD=29b133d315d847ca
     networks:
       - suzgec-network
 

@@ -147,7 +147,12 @@ export function Navbar() {
         const timer = setTimeout(readQueryFromUrl, 150)
         return () => clearTimeout(timer)
     }, [pathname])
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        try {
+            await api.logout()
+        } catch (e) {
+            console.error('Logout API hatası:', e)
+        }
         localStorage.removeItem('token')
         localStorage.removeItem('user')
         setIsLoggedIn(false)
