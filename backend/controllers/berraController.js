@@ -1,5 +1,6 @@
 const StockAlert = require('../models/StockAlert');
 const PriceAlert = require('../models/PriceAlert');
+const { sendNotification } = require('../services/notificationProducer');
 
 exports.getStockAlerts = async (req, res) => {
   try {
@@ -72,6 +73,16 @@ exports.createPriceAlert = async (req, res) => {
         targetPrice, 
         productName: product.name, 
         currentPrice: product.currentPrice 
+    });
+
+    // RabbitMQ kuyruğuna bildirim gönder — fiyat alarmı kuruldu
+    await sendNotification({
+      userId: req.user._id,
+      type: 'system',
+      title: 'Fiyat Alarmı Kuruldu',
+      message: `"${product.name}" ürünü için ${targetPrice} ₺ hedef fiyat alarmı kuruldu.`,
+      productId: product._id,
+      productName: product.name,
     });
     
     res.status(201).json({ success: true, message: 'Alarm kuruldu', data: alert });

@@ -1,0 +1,2030 @@
+
+================================================================================
+FILE: Final İçin Yapılacaklar.pdf
+================================================================================
+
+Total pages: 1
+
+
+--- Page 1/1 ---
+F"nal/Bütünleme İç"n Yapılacaklar F"nal Tesl"m Son tar"h: F#nal sınav tar#h#+3 gün Saat: 17:00 Bütünleme Tesl"m Son Tar"h: Bütünleme sınav tar#h# saat:17:00 Not:  • Kanıt v"deolarında mutlaka kend" ses"n"z duyulmalı. Üzer"n"ze düşen kaç gereks"n"m"n kaçını yaptığınızı bel"rt"n"z.  • Önce kanıtı göster"lecek gereks"n"m adı söylenmel" sonra kanıtı göster"lmel". • Demo göster"m kısmı odamda yapılacak. Tüm ek"p ya da ek"pten b"r k"ş" gelerek uygulamanın çalıştığını bana göstermel". Gel"p gelmemekte özgürsünüz. Gelmezsen"z 15 puan alamayacaksınız.  • Uygulamanın çalışır son hal" ma"n/master branchta olmalı. • F"nal tar"h"ne yet"şt"remeyeceğ"n" düşünenler ben"mle "let"ş"me geçerek bütünlemeye bırakmak "sted"kler"n" bel"rtmel".  1. Mob#l frontend görev dağılımları yapılmalı, her grup üyes# kend#ne atanan frontend tasarımlarını kodlamalı ve repoya kend# branchına pushlamalı.  2. Her üye repodak# 5 numaralı madde olan Mob#le Front-End kısmı #ç#n kend# sayfasını oluşturmalı ve frontend kanıt v#deosunu s#mülatör ya da gerçek c#hazda çalışacak şek#lde kend# sayfasına eklemel#. 3. Mob#l backend görev dağılımı yapılmalı, her grup üyes# kend#ne atanan REST API-backend ve frontend bağlantılarını kodlamalı ve repoya kend# branchına pushlamalı.  4. Her üye repodak# 6 numaralı madde olan Mob#le Back-End kısmı #ç#n kend# sayfasını oluşturmalı ve back-end kanıt v#deosunu s#mülatör ya da gerçek c#hazda çalışacak şek#lde kend# sayfasına eklemel#. Mob"l uygulamadan rest ap"ye "steğ"n g"tt"ğ" ve "şlem"n gerçekleşt"ğ" net olarak görünmel". Aks" halde o gereks"n"me puan ver"lmeyecek.  5. Rabb#tMQ/Kafka, Red#s/Memcached,Docker+CI/CD kanıt v#deoları 7 numaralı V#deo Sunum kısmına eklenmel#. Bu teknoloj"ler" kullanmadıysanız v"deo l"nk yer"ne kullanmadım yazınız. Bu kısımlar b"reyseld"r. Dolayısıyla v"deo sunum kısmında grup üyes" sayısı*3 adet v"deo olmalı. Rabb"tMQ, Red"s teknoloj"ler"n" b"r gereks"n"m "ç"n kullanmanız yeterl". 6. Son v#deo sunum l#nk# y#ne 7 numaralı V#deo Sunum kısmına eklenmel#. V#deo sunumda neler olması gerekt#ğ# YazMuh şablonunda yer almaktadır. 
+
+================================================================================
+FILE: YM 3. Ders.pptx (1).pdf
+================================================================================
+
+Total pages: 49
+
+
+--- Page 1/49 ---
+[No text extracted from this page]
+
+--- Page 2/49 ---
+Docker 
+•Servis olarak platform (PaaS, Platform as a Service) sunan dotCloud isimli bir 
+firma özelleştirilmiş bir konteynır kullanıyordu. 
+•Temelinde OpenZV isimli Linux tabanlı bir sanallaştırma teknolojisi vardı. 
+•İlk başlarda (2008) tek bir Python skriptinden oluşuyordu. 2012 yılında yaklaşık 10 
+Python bileşini, 100 mikroservisi olan bir yapıya dönüştü. 
+•2012 yılı sonunda firma bu konteynırı iyileştirdi ve bu konteynıra kod adı olarak 
+Docker isimi verildi. 
+•2013’te kitlelere tanıtıldı ve açık kaynak lisanslı olarak piyasaya sürüldü. 
+•Firma ismini de Docker olarak değiştirdi. 
+•Bu tarz yazılımların adı Türkçe olarak kapsayıcı kelimesi ile ifade edilmektedir. 
+•Kapsayıcıların temel amacı uygulamaların yazılım kapsayıcıları içinde otomatik 
+olarak dağıtımını sağlamaktır. 
+•Bu hedefe Linux üzerinde, sistem düzeyinde sanallaştırma ve ekstra soyutlama 
+katmanları sunularak ulaşılır. 
+•Bir yazılımın çalışması için sunucaya yükleyebileceğiniz ne varsa bunların hepsini 
+bir dosya sistemi içinde yazılım olarak size sunabilme imkanına sahiptir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 3/49 ---
+Kapsayıcıların (Containers) Geçmişi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 4/49 ---
+Docker’ın Linux ile Bağlantısı 
+İlk çıktığında libvirt, LXC, ve systemd-nspawn kütüphaneleri ile Linux kerneline erişirken 
+şimdi geliştirilen libcontainer kütüphanesi ile Linux kernele erişmektedir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 5/49 ---
+Docker 
+•libcontainer: Şu anki adı runc’dir. OCI (Open Container Inicitive) standartlarına uygun bir şekilde 
+kapsayıcının çalışması ve kopyalarının üretilmesi için gerekli komut satırı araçlarını içerir. 
+•libvirt:  Platform sanallaştırmasını yönetmek için açık kaynaklı bir API, arka plan programı ve 
+yönetim aracıdır. 
+•systemd-nspawn: chroot tarzı bir komuttur. chroot komutunun steroid kullanan versiyonu 
+diyebiliriz. Bir kapsayıcı içinde komut ve işletim sistemi çalıştırmanızı sağlar. 
+•cgroups: bir süreç (process) grubunun kaynak kullanımını sınırlayan, izole eden bir Linux çekirdek 
+özelliğidir. 
+•namespaces: Linux çekirdek kaynaklarını bölümlere ayırır. Bir işlem kümesi bir kaynak kümesini 
+görürken başka bir işlem kümesi farklı bir kaynak kümesi görür. Konteynerlerin taşınabilir kalması 
+ve ana sistemin geri kalanını etkilememesi için ihtiyaç duyduğu yalıtımı sağlar. 
+•Netlink: Kullanıcı alanındaki iş parçacıkları ile kernel arasında bilgi akışını sağlar. 
+•SELinux : Linux çekirdeği güvenlik modülüdür. 
+•Netfilter: Linux çekirdeği tarafından sağlanan, ağ ile ilgili çeşitli işlemlerin özelleştirilmiş işlemler 
+biçiminde uygulanmasına izin veren bir çerçevedir. 
+•AppArmor : Sistem yöneticisinin programların yeteneklerini program bazlı profillerle kısıtlamasını 
+sağlayan bir Linux çekirdek güvenlik modülüdür. 
+•capabilities: İş parçacıklarına root düzeyinde yetkiler, yetki altkümeleri atamanızı sağlayan bir 
+özelliktir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 6/49 ---
+Docker Benzetimi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 7/49 ---
+Docker 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 8/49 ---
+Docker 
+•Go dili ile yeniden yazılmıştır. 
+•Docker sadece işletim sistemini sanallaştırır. Tüm sistemi sanallaştırmaz. 
+•Sunucu kernel’i üzerinde çalışır. Bazı kütüphaneleri ve derlenmiş uygulamaları 
+(binaries) paylaşırlar. Bunlar sadece okuma yetkisine sahiptir. 
+•Sistem kaynaklarını kullandığı için boyut olarak daha küçüktürler (lightweight). 
+•Docker öncesi: 
+–Uygulamalar dep, rpm, gem, jar paketleri halinde dağıtılırdı. 
+–Diğer paketlere bağımlılık üst düzeydeydi. 
+–Sadece “Kendi makinemde çalışıyor, sadece şu versiyonla çalışıyor, şu kütüphaneyi 
+yüklersen çalışır” mantığı vardı. 
+–Yeniden dağıtma işlemi her zaman en baştan yapılırdı. 
+•Docker sonrası: 
+–Kapsayıcı imajlar tüm bağımlılıklarıyla üretilmeye başlandı. 
+–İmajlar katmanlara ayrılabildi. 
+–Sadece değişen katmanlar dağıtılabildi. 
+–Disk, bellek ve ağ kullanımından kazanç sağlandı. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 9/49 ---
+Docker vs. Sanal Makine 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 10/49 ---
+Docker vs. Sanal Makine 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 11/49 ---
+Docker vs. Sanal Makine (VM, Virtual Machine) 
+•Uygulamaların geliştirme ortamından üretim ortamına aktarılması için disk imajı 
+oluşturulması gerekir. 
+•Hızlı imaj oluşturma hem hızlı test hem de daha sık dağıtım imkanı sağlar. 
+•VM tüm işletim sistemi imajını içerirken, Docker sadece fark imajını (uygulama 
+katmanını) içerir. 
+•VM:
+–Bağımlılık cehennemi: Uygulamaların %50’den az bir kısmı derlenebilir ve 
+yüklenebilir. 
+–Bilimsel hesaplamalar için kullanımı çok zor. 
+–Dokümantasyon sıkıntısı: Sanal makinelerin nasıl kurulacağı dair az ya da eksik 
+belge olması. 
+–Yeniden kullanımı, genişlemesi, paket yönetici oluşturması çok zor. 
+–Bulut ortamlarına ya da diğer ortamlara taşınabilirliği zorlaştırır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 12/49 ---
+Docker vs. VM Performans Karşılaştırması 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 13/49 ---
+Docker’ın Ana Hedefi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 14/49 ---
+Docker Kullanım Senaryoları 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 15/49 ---
+Docker Engine 
+•Docker Engine 3 ana bileşenden oluşan bir istemci-sunucu uygulamasıdır. 
+•Sunucu (Server): Arka planda sürekli çalışan daemon process olarak adlandırılan bir uygulama (dockerd 
+komutu). Daemon, imajları, disk sürücülerini, ağı yönetir. 
+•REST API: Programların daemon ile konuşabilmelerini, daemon’a komut verebilmelerini sağlar. 
+•CLI: İstemci tarafından kullanılan komut satırı arayüzü (docker komutu). REST API’yi kullanarak daemona 
+ulaşabilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 16/49 ---
+Docker Mimarisi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 17/49 ---
+Docker Mimarisi 
+•Docker istemci-sunucu mimarisini kullanır. 
+•Docker istemcisi tüm işi yapan Docker daemon ile konuşur. 
+•İstemci ile daemon aynı sistem üzerinde çalışabilir. Ya da istemci uzaktaki 
+daemona bağlanabilir. 
+•İstemci ve daemon REST API aracılığı ile Unix soket yapısı ya da ağ arayüzleri 
+üzerinden haberleşir. 
+•İstemci docker run gibi bir komut çalıştırdığında, istemci bu komutu dockerd ’ye 
+göndermiş olur. 
+•docker komutu Docker API’sini kullanır. İstemci birden fazla daemon ile 
+haberleşebilir. 
+•Docker Registry (Kayıtçı): Docker imajlarını tutar. Docker Hub  herkese açık, 
+herkesin kullanabileceği bir kayıtçıdır (imaj deposu da diyebiliriz). 
+•Aynı zamanda kendi özel kayıtçılarınızı da oluşturabilirsiniz. 
+•docker pull ya da docker run komutlarını çalıştırdığınızda gerekli imajlar 
+ayarladığınız kayıtçıdan indirilir ve çalıştırılır. 
+•docker push komutunu kullandığınızda imajınız ayarladığınız kayıtçıya gönderilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 18/49 ---
+Docker Mimarisi 
+•Docker Nesneleri (Objects): Docker’ı kullandığınızda imajlar, kapsayıcılar, ağlar, 
+disk sürücüleri, eklentiler ya da başka nesneler üretip kullanabilirsiniz. Bunların 
+hepsi birer Docker nesnesidir. 
+•Imajlar (Images): 
+•Docker kapsayıcıları oluşturmanızı sağlayan sadece okuma iznine sahip olduğunuz 
+ve içinde talimatlar içeren bir şablondur. 
+•İmajlar genelde başka bir imajı temel alır. Örneğin Ubuntu tabanlı bir imaj 
+oluşturabilir, Apache sunucusunu ve uygulamanızı, uygulamanızın çalışması için 
+gerekli konfigürasyonları da bu imaja ekleyebilirsiniz. 
+•Kendi imajınızı oluşturabilir ya da açık erişimli kayıtçılardan imaj indirip üzerinde 
+değişiklikler yapabilirsiniz. 
+•Dockerfile: Bu dosya aracılığı ile kendi imajınızı oluşturup çalıştırabilirsiniz. Bu 
+dosyanın içinde imajın nasıl oluşturulacağı ve çalıştırılacağı ile ilgili adım adım 
+talimatlar yer alır. Dosyadaki her talimat imajda bir katman oluşturur. Dockerfile’ı 
+değiştirip imajınızı yeniden oluşturduğunuzda sadece değişen katmanlar yeniden 
+oluşturulur. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 19/49 ---
+Docker Mimarisi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 20/49 ---
+Dockerfile Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 21/49 ---
+Dockerfile Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 22/49 ---
+Dockerfile Komutlar 
+•FROM: İmaj oluşturma adımını başlatarak kullanılacak olan temel imajı (base 
+image) ayarlar. Bu satırdan sonra yazılan komutlar bu imaj tarafından kullanılır. Bu 
+yüzden Dockerfile’daki ilk komut FROM olmalıdır. 
+•WORKDIR: Kapsayıcının çalışma klasörünü ayarlar. Container içerisinde belirtilen 
+bu yola geçiş yapılır. Eğer belirtilen yol mevcut değilse öncelikle oluşturulur ve 
+sonrasında bu yola geçiş yapılır. 
+•COPY: İstemcide yer alan dosyaları, klasörleri kapsayıcıya kopyalar. 
+•ADD: COPY ile aynı işi yapar. Ek olarak URL kopyalamayı ve tar dosyalarının 
+içeriğinin çıkarılmasını aktifleştirir. 
+•RUN: Komut çalıştırır ve dönen sonuçları imajda yeni bir katman olarak kaydeder. 
+Genellikle yazılım paketlerini çalıştırmak için kullanılır. 
+•LABEL:  Kapsayıcı hakkında anahtar-değer ilişki şeklinde metada tutar. 
+•MAINTAINER: İmajdan sorumlu kişinin bilgilerini eklemeyi sağlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 23/49 ---
+Dockerfile Komutlar 
+•CMD: Kapsayıcının çalışmasıyla birlikte hangi komutun çalıştırılacağını bilgilendirir. 
+Dockerfile içerisinde sadece bir tane CMD komutu kullanılabilir. Temel amaç 
+kapsayıcı çalıştığında içindeki uygulamayı çalıştırmak. Birden fazla kullanılıyorsa da 
+en son kullanılan CMD komutu geçerli olacaktır. 
+•EXPOSE: İmajda hangi portların açılacağını belirtir. 
+•VOLUME: Belirtilen yola disk sürücüsü bağlar. 
+•ENV: Anahtar-Değer ilişkisi biiçiminde ortam değişkenlerini ayarlamanızı sağlar. 
+•USER: İmaj çalışırken kullanılacak kullanıcı adını belirler. 
+•ENTRYPOINT: CMD’ye benzer. Komuta ek parametre eklemenizi sağlar. Kapsayıcı 
+çalıştırdığınızda CMD’ye verdiğiniz parametreyi değiştiremezken ENTRYPOINT 
+kullandığında kapsayıcı varsayılan parametrenin üzerine yazıp yeni komutu 
+çalıştırabilir. 
+•Kapsayıcı içerisine eklenmesini istemediğimiz dosyalar varsa .dockerignore isimli 
+dosya içerisinde belirtilebilirsiniz. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 24/49 ---
+Docker Mimarisi 
+•Kapsayıcılar (Containers): 
+–İmajın çalıştırılabilir örneğidir. 
+–Docker API ya da CLI kullanarak kapsayıcıları başlatabilir (start), durdurabilir (stop), 
+taşıyabilir (move), ya da silebilirsiniz (delete). 
+–Kapsayıcıları bir ya da daha fazla ağa bağlayabilirsiniz. 
+–Disk bağlayabilirsiniz. 
+–Varsayılan olarak diğer kapsayıcılardan ve sunucudan iyi izole edilmiştir. İzolasyonun ne 
+düzeyde olacağını da kontrol edebilirsiniz. 
+•docker run -i -t ubuntu /bin/bash gibi bir komut çalıştırdığınızda: 
+–Eğer ubuntu imajı bilgisayarınızda yoksa kayıtçıdan çekilir. docker pull ile kendiniz de 
+çekebilirsiniz. 
+–Docker yeni bir kapsayıcı oluşturur. 
+–Kapsayıcıya okuma-yazma yetkili dosya sistemi ayırır. Kendi sistemindeki dosyalara 
+erişmek, dosyaları değiştirmek için izin sağlar. 
+–Varsayılan ağa bağlanmak için gerekli ağ arayüzünü oluşturur. IP atama işlemini yapar. 
+–Docker kapsayıcıyı başlatır ve -i ve -t bayraklarından dolayı interaktif olarak ve terminale 
+bağlayarak /bin/bash” i çalıştırır. 
+–exit komutunu çalıştırırsanız bin/bash ’ten çıkılır. Kapsayıcı durur ancak kaldırılmaz. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 25/49 ---
+Docker Mimarisi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 26/49 ---
+Docker Mimarisi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 27/49 ---
+Docker Mimarisi 
+•Disk Sürücüleri (Volumes): 
+–Docker tarafından oluşturulan ve Docker kapsayıcıları tarafından kullanılan veriler disk 
+sürücülerinde tutulur. 
+–Docker API ve CLI ile yönetilir. 
+–Hem Windows hem de Linux kapsayıcılar ile çalışabilir. 
+–Sürücünün içeriği kapsayıcı yaşam döngüsünün dışında yer alır. Dolayısıyla kapsayıcının 
+boyutunda değişikliğe neden olmaz. 
+–-v ya da –mount bayraklarını kullanarak kapsayıcınızı bir disk sürücüsü ile 
+başlatabilirsiniz. 
+•Ağlar (Networks): 
+–Bridge: Kapsayıcı için varsayılan ağ sürücüsüdür. Uygulamanız kapsayıcı içinde 
+çalışıyorsa ya da birden fazla kapsayıcıda çalışıp tek docker sunucusu ile haberleşecekse 
+bu seçeneği kullanabilirsiniz. 
+–Host: Docker sunucusu ile docker istemcisi arasındaki ağ izolasyonunu kaldırır. 
+–Overlay: Kapsayıcılar farklı sunucularda çalışıyorsa bu seçenek kullanılır. 
+–None: Ağ yok. 
+–macvlan: Kapsayıcıların fiziksel bir aygıtmış gibi MAC adresi almalarını sağlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 28/49 ---
+Docker Komutları 
+•docker create --name [KAPSAYICIADI] [IMAJ]: Kapsayıcıyı başlatmadan 
+belirtilen imajdan bir kapsayıcı oluşturur. 
+–docker create --name benimkapsayicim alpine 
+–Alphine linux imajından benim kapsayicim adıyla bir kapsayıcı oluşturur. 
+•docker rename [ESKI_AD] [YENI_AD]: Kapsayıcıyı yeniden adlandırır. 
+–docker rename benimkapsayicim seninkapsayicin 
+•docker run [IMAJ]: İmajdan kapsayıcı oluşturur ve başlatır. 
+–docker run -i -t --name benimkapsayicim  alpine 
+•docker run --rm [IMAJ]: Kapsayıcı oluşturur ve başlatır ve kapsayıcı durduktan 
+sonra kaldırır. 
+–docker run -t -i --rm ubuntu /bin/bash 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 29/49 ---
+Docker Komutları 
+•docker run -td [IMAJ]: Kapsayıcıyı oluşturur, çalıştırır ve sürekli çalışmasını 
+sağlar. 
+–docker run -td alpine 
+•docker run -it [IMAJ]: Kapsayıcıyı oluşturur, çalıştırır ve içinde komut 
+çalıştırmayı sağlar. 
+–docker run --name test -it debian 
+•docker run -it --rm [IMAJ]: Kapsayıcıyı oluşturur, çalıştırır ve içinde komut 
+çalıştırmayı sağlar, çıkınca kapsayıcıyı kaldırır. 
+•docker rm [KAPSAYICI]: Kapsayıcıyı kaldırır. 
+•docker update [KAPSAYICI]: Kapsayıcıyı günceller. 
+•docker build [dosyayolu]: Dockerfile dosyasından bir imaj oluşturur. 
+•docker build –t [dosyayolu]: Dockerfile dosyasından bir imaj oluşturur ve 
+etiketler. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 30/49 ---
+Docker Komutları 
+•docker pull [IMAJ]: Kayıtçıdan (imaj deposundan) imaj çek. 
+•docker push [IMAJ]: Kayıtçıya imaj gönder. 
+•docker import [URL/FILE]: tarball dosyasından imaj oluştur. 
+•docker commit [CONTAINER] [YENI_IMAJ_ADI]: Bir kapsayıcıdan imaj 
+oluştur. 
+•docker rmi [IMAJ]: İmajı kaldır. 
+•docker load [TAR_DOSYASI/STDIN_DOSYASI]: tar arşivinden ya da el ile 
+girilen dosya yolundan imaj yükle. 
+•docker save [IMAJ] > [TAR_DOSYASI]: Bir imaj dosyasını tüm katmanları, 
+etiketleri, versiyonları ile tar arşiv dosyası olarak kaydet. 
+•docker network ls: Ağları listele. 
+•docker network rm [AĞ]: Bir ya da dağa fazla ağı kaldır. 
+•docker network inspect [AĞ]: Bir ya da dağa fazla ağ ile ilgili bilgileri göster. 
+•docker network connect [AĞ] [KAPSAYICI]: Kapsayıcıyı belirtilen ağa bağla. 
+•docker network disconnect [AĞ] [KAPSAYICI]:  Kapsayıcıyı belirtilen ağdan 
+çıkar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 31/49 ---
+Docker Komutları 
+•docker start [KAPSAYICI]: Kapsayıcıyı başlat. 
+•docker stop [KAPSAYICI]: Kapsayıcıyı durdur. 
+•docker restart [KAPSAYICI]: Kapsayıcıyı durdur ve yeniden başlat. 
+•docker pause [KAPSAYICI]: Çalışan kapsayıcıdaki işlemleri duraklat. 
+•docker unpause [KAPSAYICI]: Çalışan kapsayıcıdaki işlemleri çalıştırmaya 
+devam et. 
+•docker wait [KAPSAYICI]: Diğer kapsayıcılar durana kadar kapsayıcıyı beklet. 
+•docker kill [KAPSAYICI]: Çalışan bir kapsayıcıyı SIGKILL sinyali göndererek 
+kapat. 
+•docker attach [KAPSAYICI]: Çalışan bir kapsayıcıya standart giriş, çıkış ve hata 
+akışlarını bağla. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 32/49 ---
+Docker Komutları 
+•docker ps: Çalışan kapsayıcıları göster. 
+•docker ps –a: Çalışan ve durmuş kapsayıcıları göster. 
+•docker logs [KAPSAYICI]: Çalışan kapsayıcının loglarını göster. 
+•docker inspect [NESNE_ADI/ID]: Bir nesne hakkındaki alt düzey bilgileri 
+göster. 
+•docker events [KAPSAYICI]: Kapsayıcıdaki gerçek zamanlı olayları göster. 
+•docker port [KAPSAYICI]: Kapsayıcıdaki port bilgilerini göster. 
+•docker top [KAPSAYICI]: Kapsayıcıdaki çalışan işlemleri göster. 
+•docker stats [KAPSAYICI]: Kapsayıcının anlık kaynak kullanım bilgilerini göster. 
+•docker diff [KAPSAYICI]: Dosya ya da dosya sistemindeki değişiklikleri göster. 
+•docker images: Yerel olarak depolanmış imajları göster. 
+•docker history [IMAJ]: İmajın tarihçesini göster. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 33/49 ---
+Docker-Fullstack Uygulamasını Kapsülleme 
+•Front-End, REST API ve MongoDB’den oluşan civardaki mekanları gösteren, mekan eklemenizi, silmenizi, 
+güncellemenizi sağlayan MekanBul isimi web tabanlı bir uygulamanız olduğunu düşünün. 
+•Her bir katmanı ayrı bir Docker kapsayıcısında (Toplam 3 adet) çalıştırmak istiyorsunuz. 
+•MongoDB kapsayıcınızda (mongodb_kapsayici) MongoDB 27017 portunda çalışacak. 
+•Front-End (mekanbul_kapsayici) kapsayıcınızda Front-End uygulamanız 3000 portunda çalışacak. 
+•REST API (mekanbuapi_kapsayici) kapsayıcınızda REST API’nız 9000 portunda çalışacak. 
+•Front-End REST API aracılığı ile MongoDB’ye bağlanacak. 
+•Front-End uygulama klasörümüz mekanbul_app ve bu klasörde bir Dockerfile tanımlayacağız. 
+•REST API klasörümüz mekanbul_api ve bu klasörde de Dockerfile tanımlayacağız. 
+•Birden fazla kapsayıcıyı ayarlamak ve dağıtmak için Docker içinde yer alan docker-compose aracını 
+kullanacağınız. 
+•Docker-compose tüm servisleri tanımlamak için YAML adında bir dosya kullanır. 
+•Servislerin isimleri, servislerin bağımlılıkları, çalışacakları portlar, kullanacağı ağ bu dosya içinde tanımlanır. 
+•Uygulama klasöründe iken aşağıdaki komutlar çalıştırılarak servisler oluşturulur. 
+–docker-compose build 
+•Tüm servisleri aynı anda çalıştımak için aşağıdaki komut kullanılır. 
+–docker-compose up 
+•REST API servisini kullanırken adres http://servisadi:port  şeklinde koddan değiştirilmeli. servisadi ve port 
+yaml dosyasında tanımlanan ad ve porttur. 
+•Aynı şekilde MongoDB bağlantı adresiniz mongodb://mongodbservisadi:port/veritabaniadi şeklinde olmalı. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 34/49 ---
+Docker-Fullstack Uygulamasını Kapsülleme 
+Front-END Dockerfile Rest API Dockerfile 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 35/49 ---
+docker-compose.yaml dosyası 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 36/49 ---
+Docker for Desktop Dashboard 
+Servisleri durdurmak için: docker-compose down 
+Servisleri DockerHub’a göndermek için: docker-compose push 
+Uygulama Github Adresi 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 Ek kaynaklar: https://github.com/veggiemonk/awesome-docker 
+
+--- Page 37/49 ---
+Git ile Takım Halinde Çalışma 
+•Repo adresinin https://github.com/asimsinan/git-demo  olduğunu varsayalım. 
+•Proje repo sahibi grup üyesi ilk olarak repoyu kendi bilgisayarına kopyalamalı. 
+•Bunu iki şekilde yapabilirsiniz. 
+–Komut satırından git clone https://github.com/asimsinan/git-demo 
+–Ya da aşağıdaki gibi VSCode üzerinden 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 38/49 ---
+Git ile Takım Halinde Çalışma 
+•İkinci aşama olarak repo sahibi proje iskeletini bilgisayarında oluşturduktan sonra 
+main branch’a commit ve push işlemlerini gerçekleştirmeli. 
+•Diyelim ki aşağıdaki gibi proje iskeletini oluşturdu. 
+–Yaptığı değişiklikleri öncelikle aşağıdaki gibi commit daha sonra da push yapmalı 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 39/49 ---
+Git ile Takım Halinde Çalışma 
+•Bir sonraki aşamada her grup üyesinin bu iskeleti oluşturulan repoyu kendi bilgisayarlarına 
+clone’lamaları gerekir. Bir önceki aşamada repoyu oluşturan kişinin bunu yapmasına gerek 
+yok.
+•Daha sonra herkesin kendi branch’ını oluşturma aşaması. 
+–Herkes kendi adı ile (örnek benimki asimsinan olsun) aşağıdaki gibi create branch , checkout to 
+asimsinan, publish to branch  işlemlerini gerçekleştirmeli. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 40/49 ---
+Git ile Takım Halinde Çalışma 
+•Git reponuza gittiğinizde aşağıdaki gibi kendi branch’ınızın oluştuğunu 
+göreceksiniz. Grup kaç kişiyse o kadar branch olmalı. 
+•VSCode içinde de artık kendi branch’ınız içindesiniz. Yaptığınız değişiklikler sadece 
+kendi branch’ınızı etkileyecek. 
+•Diyelimki  grup üyesi kendi gereksinimlerinden birini ya da hepsini yaptı. 
+VenuController isimli dosyayı oluşturdu. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 41/49 ---
+Git ile Takım Halinde Çalışma 
+•İlk yapması gereken işlem kendi branch’ında bu değişiklikleri commit etmek ve 
+daha sonra Sync Changes tuşuna basıp uzak reposuyla senkronize etmek. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 42/49 ---
+Git ile Takım Halinde Çalışma 
+•Git reposuna gittiğinde asimsinan branch’ında değişikliklerin etkili olduğunu 
+görecek. Ancak henüz main branch’ında hiçbir değişiklik yok (normal). 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 43/49 ---
+Git ile Takım Halinde Çalışma 
+•Şimdi diğer bir grup üyesinin kendi hesabından kendi gereksinimlerini yaptığını 
+düşünelim. Unutmayın daha önceki aşamada " create branch , checkout to 
+asimsinan, publish to branch” işlemlerini gerçekleştirilmiş olmalı. 
+•Diyelim ki bu grup üyesi CommentController.js’de değişiklikler yaptı. Commit ve 
+sync işlemlerini gerçekleştirdi. Repoda yeni branch ve değişiklikler görünür 
+olacaktır. Ancak yapılanlar henüz main brancha yansıtılmadı. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 44/49 ---
+Git ile Takım Halinde Çalışma 
+•Github reposuna gittiğinizde aşağıdaki gibi bir uyarı ile karşılaşacaksınız. 
+•Bu farklı branch’larda yapılan değişikliklerin henüz main branch’a eklenmediği 
+anlamına gelir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 45/49 ---
+Git ile Takım Halinde Çalışma 
+•Github reposuna gittiğinizde aşağıdaki gibi bir uyarı ile karşılaşacaksınız. 
+•Bu farklı branch’larda yapılan değişikliklerin henüz main branch’a eklenmediği 
+anlamına gelir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 46/49 ---
+Git ile Takım Halinde Çalışma 
+•Tüm üyeler kendi branch’larında kendi gereksinimlerini yaptıktan ve değişikliklerini 
+commit, sync yaptıktan sonra grup lideri tüm bu değişiklikleri main branch’a 
+merge etmeli. Bu nedenle önce grup lideri checkout to … diyerek main branch’a 
+geçmeli. Daha sonra aşağıdaki gibi merge işlemini başlatmalı. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 47/49 ---
+Git ile Takım Halinde Çalışma 
+•Merge olacak branch’lar sırayla seçilmeli ve merge işlemi gerçekleştirilmeli. Sync changes ile 
+değişiklikleri kaydetmeli. 
+•Aşağıdaki örnekte 2 branch var. Dolayısıyla her bir için branch seçme, sync işlemi sırayla 
+gerçekleştirilmeli. 
+•Eğer her grup üyesi kendine main branch güncellemelerini çekmek istiyorsa checkout to 
+main diyerek main branch’a geçmeli ve sync changes diyerek değişiklikleri almalı. 
+•Eğer grup üyesi kendi branch’ına main branch’daki tüm değişiklikleri çekmek istiyorsa kendi 
+branch’ında iken merge diyerek main branch’ı seçip merge yapabilir. 
+•Artık tüm grup üyelerinde main’in son hali olacak. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 48/49 ---
+Ödev: 3. Ve 4. Aşama 
+•Derste anlattığım şekilde git üzerinden takım halinde çalışılarak 3. ve 4. aşama için gerekli kodlar 
+yazılacak. 
+•Domain üzerinde çalışmayan ödevlere puan verilmez. 
+•Her grup üyesi kendi kullanıcı adıyla commit ve push yapmalı. 
+•Videonun başında isminizi, size ait gereksinim isimlerini ve bu gereksinimlerden kaç 
+tanesi yaptığınızı belirtin. Örnek: 6 gereksinimin 4’ünü yaptım gibi. 
+•POSTMAN’de istek gönderdiğiniz domain adresi, koleysiyonunuz, koleksiyonunuzdaki 
+API metotları, testin başarılı olduğuna dair kısımlar net bir şekilde görünmeli. 
+•Ödev teslim tarihi: 3 Nisan 2026 17:00 
+•MADDE 3. REST API: 
+–Api tasarımı yapılan gereksinimler grup üyeleri arasında eşit sayıda paylaştırılacak. 
+–Api tasarımındaki yol ve metotlara uygun bir şekilde her grup üyesi kendi üzerine düşen gereksinim için 
+REST API metotlarını gerçekleştirecek ve kendi branch’ını oluşturacak commit ve push işlemlerini 
+gerçekleştirecek. 
+–REST API’nin yayınlandığı domain adresi (Örnek: restapi.vercel.com/v1 givbi) Rest API md dosyasının en 
+başına yazılacak. Metotlar, yollar ve request body bilgileri de alta madde madde yazılacak 
+–Grup üyeleri için gerekli REST API md sayfaları oluşturulacak. Her üye kendi sayfasını oluşturmalı. 
+–Her grup üyesi POSTMAN üzerinden oluşturduğu koleksiyon üzerinden domain üzerindeki Rest API’sinin 
+testini örnek verilerle yapacak ve başarılı olduğunu kanıtlayan bir youtube videosu çekerek kendi sayfasının 
+en başına ekleyecek. 
+–Her grup üyesi kendi gereksinimlerinin POSTMAN koleksiyonunu Json formatında dışarıya aktararak githubda 
+daha önce kendi ismiyle oluşturduğu klasöre kaydedecek. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 49/49 ---
+Ödev: 3. Ve 4. Aşama 
+•Domain üzerinde çalışmayan ödevlere puan verilmez. 
+•Her grup üyesi kendi kullanıcı adıyla commit ve push yapmalı. 
+•Videonun başında isminizi, size ait gereksinim isimlerini ve bu gereksinimlerden kaç 
+tanesi yaptığınızı belirtin. Örnek: 6 gereksinimin 4’ünü yaptım gibi. 
+•Her gereksinimin ismini test etmeden önce belirtilmeli ve testin başarılı olduğuna dair 
+kanıtlar net bir şekilde gösterilmeli. 
+•Domain adresine girdiğimde site ulaşılabilir olmalı. Siteye ulaşamamam durumunda 
+kanıtınız olsa bile puanı alamayacaksınız. 
+•Ödev teslim tarihi: 3 Nisan 2026 17:00 
+•MADDE 4. FRONT-END: 
+–Front end kısımları yapılacak gereksinimler grup üyeleri arasında eşit sayıda paylaştırılacak. 
+–Üzerinize düşen REST API metotları yaptığınız frontende bağlanacaak ve kendi branch’ınıza commit ve push 
+işlemlerini gerçekleştirecek. 
+–Front-end’in yayınlandığı domain adresi (Örnek: front.vercel.com givbi) Web Frontend md dosyasının en 
+başına yazılacak. 
+–Grup üyeleri için gerekli frontend md sayfaları oluşturulacak. Her üye kendi sayfasını oluşturmalı. 
+–Her grup üyesi proje domain adresi üzerinden frontendin gerekli API metotlarına bağlandığını ve doğru 
+çalıştığını örnek verilerle test edecek ve veritabanı üzerinden işlemin başarılı olduğunu kanıtlayan bir youtube 
+videosu çekerek kendi sayfasının en başına ekleyecek. 
+–Her gereksinim için de ek detaylar video altında gösterilecek. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+================================================================================
+FILE: YM 4. Ders.pptx.pdf
+================================================================================
+
+Total pages: 32
+
+
+--- Page 1/32 ---
+[No text extracted from this page]
+
+--- Page 2/32 ---
+CI/CD Kavramı 
+•CI/CD: Continous Integration/Continous Deploy/Delivery: Sürekli 
+Entegrasyon/Sürekli Teslim/Dağıtım 
+•Günümüz dünyasında sürekli değişen teknoloji karşısında şirketler ayakta kalma ve 
+rekabet etme mücadelesi vermektedirler. 
+•Sürdürülebilir yönetim ve hızlı yazılım teslimi arasındaki boşluk şirketler tarafından 
+doldurulmalıdır. 
+•CI/CD bu noktada devreye girerek hem istikrarlı ve güvenli bir sistem sağlarken 
+hem de hızlı bir şekilde yazılım değişikliklerini yapabilmeyi sağlar. 
+•CI: Sürekli Entegrasyon: 
+–Geliştiriciler sık sık kodlarındaki değişiklikleri birleştirirler (merge) ve merkezi kod 
+deposuna gönderirler. 
+–Daha sonra otomatik testler üretilir ve çalıştırılır. 
+–CI genellikle yazılımın dağıtım sürecindeki aşamasında gerçekleşen entegrasyon işlemini 
+ifade eder. 
+–Ana hedef hataların hızlı bir şekilde bulunması ve çözülmesi, yazılım kalitesinin 
+artırılması, yeni yazılım güncellemelerinin dağıtılması için gerekli süreyi kısaltmak. 
+–Küçük kod değişikliklerine ve küçük kod işlemelerine (commit) odaklanır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 3/32 ---
+CI/CD Kavramı 
+•CD: Sürekli Dağıtım/Teslim: 
+–Yazılım değişiklikler sonrası üretim ortamına çıkmak için hazırlanır, derlenir, test edilir. 
+–Tamamen otomatik ya da önemli noktaların el ile yapıldığı bir süreç halinde işletilebilir. 
+–Değişiklikler/revizyonlar üretim ortamına başka bir yazılımcının onayı olmadan otomatik 
+bir şekilde üretim ortamına aktarılabilir. 
+–Tüm yazılım dağıtım süreci otomatik hale gelir. 
+–Üretim yaşam döngüsünde müşteriden daha fazla geri dönüş alınmasını sağlar. 
+–Sürekli teslimat dendiğinde her değişikliğin işlendiği (commit) ve otomatik testi geçtikten 
+hemen sonra üretim ortamına aktarıldığı bir süreç anlaşılmamalı. 
+–Sürekli teslimat her değişikliğin üretim ortamına çıkmak için hazır hale geldiğinden emin 
+olunmasını sağlar. 
+–Sürekli teslimatta canlıya geçme kararı ticari bir karardır, teknik bir karar değildir. 
+–Teknik kararlar her kod işleme aşamasında gerçekleşir. 
+–Dağıtımda teknik takım çalışmayı durdurmaz, diğer aşamalara geçmek için beklemez, 
+proje planına, dokümantasyona ihtiyaç duyulmaz. 
+–Dağıtım tekrarlanan bir süreç haline gelir ve yazılım doğruluğu test ortamlarında çok 
+defa test edilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 4/32 ---
+CI/CD Kavramı 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 5/32 ---
+CI/CD Kavramı 
+•Faydaları: 
+–Yazılım ortaya çıkarma süreci otomatikleşir. 
+–Geliştirici üretkenliğini artırır. 
+–Kod kalitesini artırır. 
+–Güncellemeler daha hızlı teslim edilir. 
+•CI/CD süreci bir boru hattı (pipeline)/olarak düşünülebilir. 
+•Pipeline’daki her bir aşama mantıksal bir birim olarak düşünülebilir. 
+•Kod hat boyunca ilerledikçe kod kalitesi her aşamada artar. 
+•Erken aşamalarda karşılaşılan bir hata sonraki aşamalara geçilmesini engeller. 
+•Test sonuçları takımlara anında iletilir. Testler geçilmezse yeni derlemeler, 
+dağıtımlar durur. 
+•Pipeline’daki aşamalar sadece önerilerden oluşur. İş gereksinimlerine göre 
+değişebilir. 
+•CI/CD Pipeline’ın varlığı şirketin olgunlaşmasına büyük katkı sağlayacaktır. Ancak 
+şirketler tam olgunlaşmış bir pipeline yerine küçük adımlarla başlayarak süreci 
+işletmelidirler. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 6/32 ---
+CI/CD Kavramı 
+CI/CD Pipeline 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 7/32 ---
+CI/CD Kavramı 
+•CI/CD bir yolculuktur. Bu yolculukta hedef yazılımı olgunlaştırmaktır. 
+•Tüm yazılımcılar sık sık kod değişikliklerini merkezi kod deposuna (repository) işlemelidirler. 
+Tüm değişiklikler uygulamanın dağıtım dalında (branch) birleştirilmelidir (merge). 
+•Kodu erken birleştiren geliştirici yol boyunca entegrasyon problemleriyle daha az 
+karşılaşacaktır. 
+•Geliştiriciler birim testlerini olabildiğince erken oluşturmalıdırlar ve bu işlemi kodlarını merkezi 
+kod deposuna göndermeden önce yapmalıdırlar. 
+•Erken aşamalarda yakalanan hataların çözülmesi daha kolay, maliyeti daha azdır. 
+•Kod depodaki bir dala itildiğinde (push) o dalı izleyen akış yöneticisi derleme aracına derleme 
+işleminin başlaması ve kontrollu bir ortamda testlerin çalıştırılması için emir verir. 
+•Sonuçta derlenmiş bir dosya (binary) oluşur. 
+•Bir sonraki aşama teslim aşamasıdır. Kod üretim ortamının bir kopyası olan test ortamına 
+aktarılır. 
+•Son aşama ise dağıtım aşamasıdır. Yazılım üretim ortamına aktarılır. 
+•Dip Not: HP LaserJet Firmware takımına göre çevik yaklaşımla birlikte CI/CD sürecini 
+benimsemek program başına %78 oranında kazanç sağlayabilmektedir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 8/32 ---
+CI/CD Kavramı 
+•CI/CD sürecinde takımların rolü büyüktür. Bu süreçte büyük tecrübesi olan Amazon firması 
+CI/CD ortamının oluşturulması için takımların 3 ayrı geliştirici takıma bölünmesini tavsiye 
+etmektedir. Takımlar maksimum 10-12 kişiden oluşmalıdır. 
+•Bunlar: 
+–Uygulama Takımı (Application Team): Uygulamayı geliştirir. İş Listesi (Backlog), Hikayeler 
+(Stories), Birim Testlerinden (Unit Tests) sorumludur. 
+–Altyapı Takımı (Infrastructure Team): Uygulamanın çalışması için gerekli altyapıyı oluşturacak, 
+altyapı ayarlarını yapacak kodu yazar. 
+–Araçlar Takımı (Tools Team): CI/CD pipeline’ı yönetir. Pipeline’ı oluşturan araçlardan ve 
+altyapıdan sorumludurlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 9/32 ---
+CI/CD Kavramı 
+•Bu 3 takım yazılım geliştirme sürecinde pipeline’ın çeşitli aşamalarında test 
+işlemlerini sürece dahil etmelidirler. 
+•Test olabildiğince erken başlamalıdır. 
+•Aşağıda test aşamasının hız ve maliyet açısından önemini gösteren ve Mike Cohn 
+tarafından “Succeeding with Agile” isimli kitapta yer alan test piramidi yer 
+almaktadır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 10/32 ---
+CI/CD Kavramı 
+•Bu diyagrama göre birim testi piramidin en altında yer alır. En hızlı çalışırlar ve en 
+düşük maliyetli olanlardır. 
+•Dolayısıyla birim testleri test stratejinizin büyük bir kısmını (%70) oluşturmalıdır. 
+•Servis entegrasyon ve bileşen testleri birim testinin üstündedir. 
+•Bu testler detaylı bir ortama ihtiyaç duyarlar. Altyapı gereksinimleri maliyetlidir. 
+Çalışmaları yavaştır. 
+•Arayüz ve kullanıcı kabul testleri piramidin en üstünde yer alırlar. Üretim 
+kalitesinde bir ortam gerektirirler. 
+•CI/CD aşamaları: 
+–Geliştirme: Kodunuzun ve konfigürasyon ayarlarınızın yapılacağı, depolanacağı bir depo 
+( Github gibi) ayarlanır. 
+–Derleme: En uygun derleme araçları bulunarak derleme işlemi gerçekleştirilir. 
+Uygulama bağımlılıkları net bir şekilde tanımlanır. Java için Maven, Gradle; C/C++ için 
+Make; Javascript için Grunt; Ruby için Rake. 
+–Test: Üretim ortamının birebir kopyası olan bir ortam oluşturulur. Entegrasyon, bileşen, 
+sistem, performans, uygunluk, kullanıcı kabul testleri gerçekleştirilir. 
+–Üretim: Test aşamasında yapılanlar üretim ortamında tekrarlanır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 11/32 ---
+CI/CD Kavramı 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 12/32 ---
+CI/CD Kavramı 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 13/32 ---
+CI/CD Araçları-Jenkins 
+•2005 yılında Sun MicroSystems tarafından geliştirilen Hudson isimli CI aracından 
+türemiştir. 
+•Oracle 2009 yılında Sun MicroSystems’i satın aldıktan sonra projenin yönetimi de 
+Oracle’a geçmiştir. 
+•2011 yılında Hudson temel alınarak Jenkins geliştirilmeye başlanmıştır. 
+•Java tabanlı Sürekli Geliştirme Sistemidir (Continuous Build System). 
+•Tomcat ya da GlassFish gibi servlet kapsayıcısında çalışır. 
+•Son derece yapılandırılabilir bir sistemdir. Geliştiricilerin eklenti geliştirmesine izin 
+verir.
+•MIT lisansı altında kullanıma sunulmuştur. 
+•Büyük bir destek topluluğu vardır. 
+•Test raporları oluşturmanızı sağlar. 
+•Çok farklı versiyon kontrol sistemleriyle entegre olabilir. 
+•Farklı çıktı/yazılım bileşeni depolarına (artifect repository) gönderim yapabilir. 
+•Doğrudan test ve üretim ortamına dağıtım yapabilir. 
+•Paydaşlara geliştirme süreci hakkında bildirim gönderebilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 14/32 ---
+CI/CD Araçları-Jenkins 
+•Jenkins’te proje oluşturduğunuzda aşağıdaki özelliklerin hepsi içinde gelmektedir. 
+–Versiyon kontrol sistemleriyle ilişkilendirme 
+–Geliştirmeyi/Yapılandırmayı/Derlemeyi tetikleme 
+–Kabul skriptlerinin, bash skriptlerinin, Ant veya Maven hedeflerinin çalıştırma 
+–Yazılım bileşeni/çıktı (Artifact) arşivleme 
+–Birim testlerini ve Javadoc dokümanlarını yayınlama 
+–E-Posta bildirimleri 
+•Projeyi başarılı bir şekilde oluşturduğunuzda gelecekteki tüm derleme işlemleri 
+otomatik gerçekleşir. 
+•Raporlama özelliği vardır. Tüm yapılandırma durumları (Son başarılı derleme, son 
+hatalar gibi) hakkında bilgi verebilir. 
+•Ne kadar birim testi yaptığınızı, test sonuçlarını gösterebilir. 
+•2530’dan fazla firma Jenkins’i kullanmaktadır. 
+•Jenkins Kullanan Büyük Firmalar: Netflix, Facebook, Alcatel, Atmel, Dell, Deutsche 
+Telekom, Ebay, Github, Linkedin, Motorola, Nokia, Sony, SpaceX, İngiliz Hükümeti, 
+Yahoo ve daha fazlası… 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 15/32 ---
+CI/CD Araçları-Jenkins 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 16/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Docker arkaplanda çalışırken Jenkins son sürüm docker imajını aşağıdaki komutla 
+yükleyin: 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 docker run -d \ 
+  --name jenkins \ 
+  --restart unless-stopped \ 
+  -p 8080:8080 \ 
+  -p 50000:50000 \ 
+  -v jenkins_home:/var/jenkins_home \ 
+  -v /var/run/docker.sock:/var/run/docker.sock \ 
+  jenkins/jenkins:lts 
+
+
+--- Page 17/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Jenkins container icine Docker CLI kur: 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 # GPG anahtarini indir 
+docker exec -u root jenkins bash -c "install -m 0755 -d 
+/etc/apt/keyrings && curl -fsSL 
+https://download.docker.com/linux/debian/gpg -o 
+/etc/apt/keyrings/docker.asc && chmod a+r 
+/etc/apt/keyrings/docker.asc" 
+# Docker reposunu ekle 
+docker exec -u root jenkins bash -c 'ARCH=$(dpkg 
+--print-architecture) && CODENAME=$(. /etc/os-release && echo 
+$VERSION_CODENAME) && echo "deb [arch=$ARCH 
+signed-by=/etc/apt/keyrings/docker.asc] 
+https://download.docker.com/linux/debian $CODENAME stable" > 
+/etc/apt/sources.list.d/docker.list' 
+# Docker CLI ve Compose kur 
+docker exec -u root jenkins bash -c "apt-get update && apt-get 
+install -y docker-ce-cli docker-compose-plugin" 
+
+--- Page 18/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Docker socket yetkisini ayarla: 
+•Test et: 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 docker exec -u root jenkins chmod 666 /var/run/docker.sock 
+docker exec jenkins docker --version 
+docker exec jenkins docker compose version 
+
+--- Page 19/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Jenkinsfile dosyası oluştur ve repoya push et. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 20/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Loglarda yer alan admin şifresini localhost:8080 adresini açarak girin. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 21/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Pluginlerin yüklenmesini bekleyin 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 22/32 ---
+CI/CD Jenkins NodeJS Örnek 
+•Aşağıdaki «Skip and continue as admin» tuşa basarak devam edin. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 23/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 24/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 25/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 26/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 27/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 28/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 29/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 30/32 ---
+CI/CD Jenkins Pipeline Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 31/32 ---
+CI/CD ve Docker Kısımları Final İçin 
+Beklenenler 
+•Projenin CI/CD kısmı tüm bu aşamaların çalıştığını kanıtlayacak şekilde 
+•github Sunum (7. madde) kısmına bir youtube video linki olarak eklenmeli. 
+•Tüm aşamalar için Jenkinsfile dosyası oluşturmalı ve repoda bulunmalı. 
+•Bu kısım grupça yapılacak ve herkes aynı puanı alacak. 
+•Front-end ve REST API docker üzerinden yayınlanmalı. 
+•Lokalde çalışması yeterli. 
+•REST API ve frontend’in Docker üzerinde çalıştığı videoda gösterilmeli. 
+•CI/CD ve Docker birlikte değerlendirelecek ve toplam 15 puan değerinde. 
+Herhangi biri eksikse puan verilmeyecek. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 32/32 ---
+CI/CD Kaynaklar 
+•https://github.com/ligurio/awesome-ci 
+•https://github.com/ciandcd/awesome-ciandcd 
+•https://github.com/asimsinan/mekanbul 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+================================================================================
+FILE: YM 5 ders.pptx.pdf
+================================================================================
+
+Total pages: 53
+
+
+--- Page 1/53 ---
+[No text extracted from this page]
+
+--- Page 2/53 ---
+Önbellek Kavramı 
+•Önbellekleme uygulamaların cevap verme sürelerini hızlandırmak, 
+sık ihtiyaç duyulan verileri uygulama tarafına yaklaştırarak 
+uygulamaların ölçeklenebilmesini sağlamak için kullanılan bir 
+tekniktir. 
+•Veri tekrarını önler ve dış kaynaklara erişimi azaltır. 
+•Uygulamaların o an bulunduğu durumdan bağımsız çalışabilir. 
+•Web olsun, masaüstü ya da mobil olsun uygulamalar verilerden 
+bağımsız düşünülemez. Girdiler, çıktılar, durumlar bir yerlerde veri 
+olarak saklanmaktadır. 
+•Veri uygulamanın ya da iş parçalarının ne kadar yakınında durursa, 
+uygulamanın hızı da o kadar yüksek olacaktır. 
+•Modern bilgisayar sistemlerinde iş parçacıkları/işlemler donanımsal 
+düzeyde ya da küme (cluster) gibi üst düzey soyut alanlarda yani 
+çok farklı katmanlarda çalışmaktadır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 3/53 ---
+Önbellek Kavramı 
+•Tipik bir uygulama sunucusunda çalışan işlemleri düşünürsek, bu 
+tarz bir uygulamayı 3 aşamaya bölebiliriz: 
+–1. İstemciden gelen istekleri alma 
+–2. Cevabı hazırlamak için gelen isteği işleme 
+–3. Cevabı döndürme 
+•2. aşamadaki herhangi bir zamanda veri gerekebilir. 
+•İşlemin cevabın son halini üretmesi için kendisi ek veri üretebilir. 
+•Sunucunun RAM’i bu verileri depolamak için kullanılır. 
+•Ancak tüm veriler RAM’in sınırlarından dolayı burada depolanamaz. 
+•Bazen veritabanı gibi dış kaynaklarda depolanması gerekebilir. 
+•Uygulama veritabanı gibi dış kaynakları kullanmaya başladığında 
+sıkıntılar da ortaya çıkmaya başlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 4/53 ---
+Önbellek Kavramı 
+•Yavaş bir dış kaynak kullanıldığında, uygulama performansını 
+artırmak için sık erişilen veri geçici olarak uygulamaya yakın hızlı bir 
+depolama alanına aktarılır. 
+•Bu aradaki hızlı depolama alanına uygulamanın önbelleği denir. 
+•Önbelleğin temel amacı uygulamanın kullandığı ana hafıza dışında 
+depolanan veriye daha kısa sürede erişmektir. 
+•Önbellek olmadan uygulama her aşamada dış kaynaklarla iletişime 
+geçip sürekli veri çekmek zorunda kalacaktır. 
+•Önbellek kullanıldığında ise tek bir istek yapmak yeterli olacak, 
+daha sonraki erişimler önbelleğe gidilerek yapılacaktır. 
+•Önbellek aynı zamanda uygulamanın ayakta kalma süresini ve 
+erişilebilirliğini de artıracaktır. Dış kaynaklara erişimde sıkıntı olması 
+durumunda uygulama önbelleği kullanarak çalışmasına devam 
+edebilecektir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 5/53 ---
+Önbellek Kavramı 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 6/53 ---
+Önbellek Kavramı 
+•Uygulamalar önbelleği çeşitli amaçlar için kullanabilir: 
+–Konfigürasyon ayarları: Uygulama çalışmaya başlarken ya da 
+çalışırken gerekli bilgilerin depolanması. Bu bilgiler genelde yavaş olan 
+diskte text dosyası şeklinde tutulur. Dolayısıyla önbellekten getirmek 
+başlangıç hızını artıracaktır. 
+–Uygulama Yerelleştirmesi: Uygulama arayüzlerinin farklı dillere 
+desteklemesi için genelde diskte farklı dil dosyaları oluşturulur. Bu 
+bilginin önbellekte tutulması ve buradan getirilmesi cevap süresini 
+kısaltacaktır. 
+–Şablonlar: Çoğu uygulama ürettikleri cevabı hazır şablonlara (HTML 
+fragmentleri ya da JSON snippetleri gibi) aktarırlar. Veri dinamiktir 
+ancak bu şablonlar statiktir. Statik verileri önbelleklemek bunlara 
+erişim maliyetini azaltacaktır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 7/53 ---
+Önbellek Kavramı 
+•Uygulamalar önbelleği çeşitli amaçlar için kullanabilir (Devam): 
+–Aşırı işlem gücü gerektiren fonksiyonların yeniden 
+kullanılabilir sonuçları: Bazen uygulamaların aşırı kaynak kullanımı 
+yapması ve sürekli sonuç üretmesi gerekebilir. Bazı durumlarda 
+üretilen sonuçların yeniden kullanılması gerekebilir. Bu tarz ara 
+sonuçların kullanımını hızlandırmak için önbellek kullanılabilir. 
+–Oturum (Session) verileri: Oturum verilerinin önbelleklenmesi hızlı 
+cevap veren uygulamaların geliştirilmesinde olmazsa olmaz 
+özelliklerden biridir. Kullanıcının her bir etkileşimi oturum verisi 
+gerektirdiğinden bu bilginin ön bellekte tutulması, uygulamanın cevap 
+verme süresini kısaltacaktır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 8/53 ---
+Önbellek Kavramı 
+•Uygulamalar önbelleği çeşitli amaçlar için kullanabilir (Devam): 
+–Veritabanı verisi: Önbellekleme veritabanı düzeyinde arama 
+tablolarının(lookup table) kopyalarını tutmak için kullanılabilir. Bu 
+tablolar genelde uygulamanın performansını artırmak amacıyla pahalı 
+sorgular için kullanılır. 
+–API cevapları: Modern uygulamalar API’lerle haberleşecek şekilde 
+tasarlanmıştır. Bu haberleşmede kısa bir süre için bile olsa cevapların 
+önbellekte depolanması iç haberleşme performansını artırabilir. 
+–Uygulama nesneleri: Daha sonrasında tekrar kullanılacak 
+uygulamalar tarafından oluşturulan nesneler önbellekte tutulabilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 9/53 ---
+Önbellek Kavramı 
+•Önbellekler özel, paylaşımlı, dağıtık paylaşımlı olmak üzere üç 
+gruba ayrılır. 
+•Özel Önbellek: 
+–Bir işleme ait olan bir bellek sadece o işlem tarafından kullanılabilir. 
+–Bu tarz belleğin temel dezavantağı işlemle aynı RAM’i paylaşıyor 
+olmasıdır. 
+–Çünkü bu tarz bir durum çekişmeye neden olacaktır ve genelde işlem 
+kazanan olur. 
+–Özel bellekler aynı zamanda ölçeklenebilir değildir. 
+–İşleme özel olmaları işlemlerin kopyalarının oluşturulduğu durumlarda 
+verinin de kopyasının oluşturulması problemine neden olacaklardır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 10/53 ---
+Önbellek Kavramı 
+•Paylaşımlı Önbellek: 
+–Veri işlemin kullandığı bellek dışında tutulur. 
+–Bu durum erişim maliyetini biraz artırsa da uygulama ile önbelleğin 
+kaynak gereksinimleri arasındaki bağı zayıflatacaktır. 
+–Erişim maliyeti kaçınılabilir düzeydedir çünkü işlem önbelleğe 
+erişmekten ziyade daha çok isteğe cevap verme ile ilgilenecektir. 
+–Paylaşımlı bellekler genelde aynı sunucu üzerinde yer almaktadır. 
+–Sunucuda uygulamanın farklı kopyaları çalışıyorsa aynı önbellek farklı 
+kopyalar tarafından paylaşılabilir. 
+•Paylaşımlı Dağıtık Önbellek: 
+–Bu tarz bellekler genelde uzak bir sunucu da ya da sunucu 
+kümelerinde yer alır. 
+–Bu da önbelleğe alınmış verinin gereksiz kopyasının oluşturulmasını 
+önler. İsteklerin durum bilgilerinin de önbellekte tutulması 
+uygulamaların ölçeklenebilirliğini artırır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 11/53 ---
+Redis 
+•Redis açık kaynak kodlu bellek içi veri yapısı deposudur. 
+•Veritabanı, önbellek katmanı ya da mesaj aracısı (message broker) 
+olarak kullanılabilmektedir. 
+•Redis veri yapıları basit komutlarla karmaşık programlama 
+problemlerini çözebilecek güçtedir. Bu sayede programlama için 
+harcanan çabayı azaltır,çıktıyı artırır ve gecikmeyi azaltır. 
+•Önbellekleme Redis’in en popüler kullanım alanıdır. 
+•Redis’in uygulamalarda paylaşımlı dağıtık önbellekleme katmanı 
+olarak kullanılması için gerekli tüm gereksinimleri sağlayacak 
+kapasitededir. 
+•Bu gereksinimleri 15 başlık altında toplayabiliriz: 
+–1. Bellek içi depolama: Redis verileri RAM’da tutar. 
+–2. Hız için optimize edilmiştir. 
+–3. Çok çeşitli veri tiplerini destekler. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 12/53 ---
+Redis 
+•Bu gereksinimleri 15 başlık altında toplayabiliriz (Devam): 
+–4. Anahtar tabanlı erişim. 
+–5. Birden fazla anahtar üzerinde çalışabilme. 
+–6. İşlemlerin atomikliği. 
+–7. Verilerin zaman aşımına uğraması. 
+–8. Tahliye durumları: RAM’in dolmaya başladığı durumlarda eski verilerden 
+kurtulunması ve yeni veriye yer açılması. 
+–9. Akıllı önbellekleme. 
+–10. Dağıtık ağ sunucusu: Ağa bağlı uzak bir sunucu olarak kullanılabilir. 
+–11. İstekleri boru hattı (pipelining) mantığı ile iletme. 
+–12. Yüksek düzeyde erişilebilirlik. 
+–13. Veri sürdürülebilirliği (persistance). 
+–14. Ölçeklenebilirlik. 
+–15.Özel önbellek olarak kullanılabilme. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 13/53 ---
+Memcached 
+•NoSQL mantığını uygulayan, verileri anahtar-değer ilişkisi şeklinde 
+tutan önbellekleme sunucusudur. 
+•C ile yazılmıştır ve açık kaynak kodludur. 
+•Amaç veriyi önbellekte tutarak veriye erişimi ve dolayısıyla 
+uygulamaları hızlandırmaktır. 
+•Genelde web uygulamalarında kullanılır. 
+•2003 yılında LiveJournal isimli sosyal blog sitesinde kullanılmasıyla 
+ortaya çıkmıştır. 
+•Sitenin popülerliğinin ve kullanıcı sayısının artmasıyla birlikte sitenin 
+yavaşlığına dair şikayetlerde başlamıştır. 
+•Sitenin kurucusu Brad Fitzgerald  (aynı zamanda Memcached in 
+geliştiricisi) en büyük problemin veritabanından bilgi çekmek 
+olduğunu belirtir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 14/53 ---
+Memcached 
+•İşleri hızlandırmak için LiveJournal’daki sık kullanılan nesneleri 
+hafızada tutmak için sunucular kurulur. 
+•Bu nesneler renk, giriş bilgisi, stiller, yorumlar, site metni vs gibi 
+bilgilerden oluşabiliyordu. 
+•Verilerin %95’i önbellekten getirilmeye başlandı ve sitedeki 
+problemlerin çoğu ortadan kaldırıldı. 
+•Bugün Flickr, Slashdot, Wikipedia, Facebook gibi siteler bu tekniği 
+uygulamaktadır. 
+•Verilere bellekten erişmek veritabanından erişmekten daha 
+verimlidir ve uygulamaları daha ölçeklenebilir kılar. 
+•Verimliliği nasıl artırdığını bir örnekle inceleyelim. 
+•Bir etkinlik takvimi sunan bir web uygulaması oluşturacağınızı 
+düşünün. Memcached yoksa, uygulama gelecek etkinlikler için 
+gösterilecek bilgileri almak için veritabanına istekte bulunacak. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 15/53 ---
+Memcached 
+•Veritabanı bilgileri diskten alır, web sunucusuna iletir, sunucu veriyi 
+formatlar ve veriler web tarayıcısında gösterilir. 
+•Memcached olması durumunda ise veriler önce önbellekte aranır ve 
+burada varsa bilgiler buradan aktarılır. 
+•Eğer memcached’de yoksa bilgiler veritabanından getirilir ve aynı 
+zamanda bu bilgiler bir sonraki istekler düşünülerek önbelleğe 
+aktarılır. 
+•Burada ek bir işlem yapıldığı düşünülebilir. Ancak diskten okuma ve 
+bellekten okuma maliyetleri göz önünde bulundurulduğunda, 
+bellekten okumayla web sunucusunun daha etikili ve hızlı bir 
+hizmet sunacağı görülecektir. 
+•Göz önünde bulundurulması gereken bir nokta Memcached’in 
+sürekli depolama imkanı verecek bir yapı olmamasıdır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 16/53 ---
+Memcached 
+•Memcached’i sorgulayarak tuttuğu tüm bilgileri getiremezsiniz ya 
+da Memcached’deki tüm bilgileri diske yazamazsınız. 
+•Bir bilginin memcached’de olup olmadığını anlamanız için sunucuyu 
+sorgulamanız gerekir. 
+•Çünkü memcached sürekli depolama hizmeti veren bir birim 
+değildir. Optimize edilmiş bir önbellekleme sunucusudur. 
+•Memcached’in kendi içinde bir güvenlik mekanizması yoktur. 
+•Ancak bazı teknikler uygulayarak güvenliği sağlayabilirsiniz. 
+•Memcached sunucusu çökerse bilgilerde gidecektir. 
+•Ancak bu bir problem teşkil etmez. Çünkü önbelleğe alınan 
+bilgilerin kaynağı hala veritabanında durmaktadır. 
+•Yazdığınız kod sadece önbellekteki veriyi bulamayacak ve 
+dolayısıyla veri veritabanından çekilecektir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 17/53 ---
+Memcached 
+•Memcached’in sunucu ve istemci olmak üzere iki bileşeni vardır. 
+•Sunucu verilerin anahtar-değer ilişkisi şeklinde tutulmasından ve 
+verinin anahtar değer kullanılarak getirilmesinden sorumludur. 
+•Hızlı ve basittir ancak 2 kısıtlaması vardır. 
+–Anahtarlar 250 karakteri geçemez. 
+–Depolayabileceğiniz veri parçasının boyutu 1MB’yi aşamaz. 
+•Her memcached sunucusu atomiktir. Yani diğer sunucuların ne 
+durumda olduğunu bilmez ve önemsemez. 
+•Hem Linux hem de Windows işletim sistemi için desteği vardır. 
+•Yüksek veritabanı yüklerine sahip web siteleri için oldukça verimli 
+ve daha hızlıdır. 
+•Sunucuyla iletişim TCP ve UDP protokolleri aracılığı ile olur. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 18/53 ---
+Memcached 
+•Veriyi depolamak ve veriye ulaşmak için 4 adet basit komutları 
+vardır. 
+–SET: Memcached’e yeni veri ekler ya da varolan veriyi yeni veri ile değiştirir. 
+–ADD: Sadece anahtar yoksa veriyi ekler. Anahtar varsa NOT_STORED döndürür. 
+–REPLACE: Sadece anahtar varsa veriyi ekler. Anahtar yoksa NOT_STORED döndürür. 
+–GET: Veriyi getirir. 
+•Veriyi silmek için DELETE ANAHTAR komutu kullanılır. Bu komut 
+kullanarak veri silindiğinde ya da verinin süresi dolduğunda aslında 
+veri silinmez. Veri hafıza durur ancak anahtar geçersiz kılınır. Eğer 
+bellek ihtiyacı duyulursa hafızadan silinir. 
+•Veri depolanırken kullanılabilecek bilgiler: 
+–keyname: Veriye ulaşmak için kullanılacak anahtarın adı 
+–flags: Veri dışında ek bilgiler tutmak için kullanılır. 
+–expiration time: Verinin ne kadar süre tutulması gerektiğini söyler. 0 hiç silme 
+anlamına gelir. 
+–bytes: Hangi boyutta veri tutulacağını ayarlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 19/53 ---
+Memcached 
+•Memcached’in kendi içinde bir güvenlik mekanizması olmadığı için 
+sunucuya erişebilen herkes verilere de erişebilir. 
+•Dolayısıyla memcached sunucularını dış dünyaya açmamanız 
+gerekir. En azından memcached’in kullandığı port dışarıya erişime 
+kapatılmalıdır. 
+•Ek bir güvenlik mekanizması olarak anahtarlarınızı karıştırabilirsiniz 
+(obfuscate). Bu da sunucuya ulaşılsa bile veriye erişimi, neyin nasıl 
+tutulduğunu anlamayı zorlaştıracaktır. 
+•Memcached’de neyin önbellekleneceğine nasıl karar verilecek? 
+–Genelde kullanıcı şikayetlerine neden olan kısımlar veritabanı işlemleridir. 
+Dolayısıyla en sık ve en uzun süre çalışan sorgular belirlenmelidir. Buradan 
+gelen sonuçlar önbelleğe alınabilir. 
+–Tüm HTML sayfasını önbelleğe almanın mantığı yoktur. Onun yerine sayfanın 
+çoğu bölümünde aynı şekilde kullanılan HTML parçalarını ve içindeki verileri 
+önbelleğe alabilirsiniz. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 20/53 ---
+Redis vs. Memcached 
+•Her ikisi de NoSQL veritabanları kategorisinde yer alır. 
+•Her ikisi de anahtar-değer veri modeline sahiptirler. 
+•Her ikisi de veriyi RAM’de tutar. 
+•İkisi de oldukça hızlıdır. 
+•Her ikisinin de önbelleklenmesi alanında oldukça olgun ve popüler 
+teknolojilerdir. 
+•Redis buz dağı ise Memcached buz dağının sadece görünen 
+kısmıdır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 21/53 ---
+Memcached Ne Zaman Kullanılabilir? 
+•Oldukça küçük ve statik verinin önbelleklenmesinde kullanılabilir. HTML 
+kod parçacıkları gibi. 
+•Basit senaryolarda daha etkilidir. 
+•Özellikle metadataların tutulmasında daha az hafıza kullanır. 
+•Sadece okuma amaçlı kullanılacak String türündeki verilerin tutulması için 
+idealdir. 
+•Çok işparçacıklı yapıya sahip olması Redis’e göre ölçeklenebilirliğini artırır. 
+•Dolayısıyla kendine daha fazla kaynak ayırabilir. 
+•Redis’in tek iş parçacıklı yapısı yataya kümeler (cluster) halinde 
+genişleyebilmesine izin verir. 
+•Ancak kümeleme daha karmaşık ve maliyetli bir iştir. 
+•Memcached’in kopya oluşturma özelliği yoktur. 
+•Memcached yüksek trafiğe sahip sitelerde daha iyi çalışır. 
+•Tek seferde bir çok bilgi okuyabilir ve cevap verme süresi oldukça iyidir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 22/53 ---
+Redis Ne Zaman Kullanılabilir? 
+•Uygulamalar 512 MB büyüklüğünde anahtarlar ve değerler içeren 
+büyük veriler kullanmak zorunda olabilir. 
+•Bu durumda Redis tek bir kayıt için yaklaşık 1GB’ye kadar verinin 
+önbelleklemesini destekleyecek kapasitededir. 
+•Kopya oluşturmayı destekler. 
+•Kopya oluşturma işlemi de genelde master-slave düğümler 
+oluşturarak sağlanır. 
+•Slave düğümler master düğümü dinler. 
+•Master güncellendiğinde slave düğümler otomatik güncellenir. 
+•Master düğüm slave düğümleri asenkron olarak da güncelleyebilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 23/53 ---
+Redis Ne Zaman Kullanılabilir? 
+•Redis’in C, Ruby, Java, Javascript, Python gibi diller için API’si 
+mevcuttur. 
+•Redis’in yayınla/üye ol mesajlaşma yapısını ve seçtiğiniz 
+programlama dilini kullanarak yüksek performanslı mesajlaşma 
+uygulamaları geliştirebilirsiniz. 
+•Bazen çok kısa bir süre içinde milyonlarca parçadan oluşan verileri 
+önbellekleme ihtiyacı duyabilirsiniz. Bunu Redis ile 
+gerçekleştirebilirsiniz. 
+•Redis az miktarda bellek kullanır. Dolayısıyla Raspberry Pi gibi 
+cihazlarda IOT tabanlı uygulamalar geliştirmek için Redis daha 
+uygundur. 
+•Redis işlemleri (transaction) destekler. Yani  komutları tek seferde 
+çalıştırmak yerine kuyruk halinde işleyebilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 24/53 ---
+Redis vs. Memcached 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 25/53 ---
+Redis vs. Memcached Hafıza Kullanımı 
+Kaynak: Comparative Evaluation of the Performance of In-Memory Key-Value Stores: Redis vs Memcached 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 26/53 ---
+Redis vs. Memcached Çalışma Yükü 
+Comparative Evaluation of the Performance of In-Memory Key-Value Stores: Redis vs Memcached 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 27/53 ---
+Kimler Redis Kullanıyor? 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 28/53 ---
+Kimler Memcached Kullanıyor? 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 29/53 ---
+Redis ve Memcached Kullanım Örnekleri 
+•Twitter’da kullanıcıların akışı (timeline) Redis’te tutuluyor. Kullanılan veri 
+tipi ise List. Bir kullanıcının son 800 tweeti Redis’te tutuluyor. 
+–Kaynak: https://www.infoq.com/presentations/Twitter-Timeline-Scalability/ 
+•Twitter en son ve sık erişilen tweetleri tutmak için Twemcache kullanıyor. 
+Twemcache Twitter tarafından memcached üzerine geliştirilmiş. 
+•Pinterest ise takipçilerin, takip edilenlerin listesini, panolarınızı takip eden 
+kişilerin listesini, takip ettiğiniz panoların listesini Redis’te tutuyor. 
+•The Walking Dead: Road to Survival tarzı oyunlar yapan Scopely firması 
+liderlik sıralaması, API yönetimi, kuyruk iş yükü yönetimi gibi işlerde Redis 
+kullanıyor. 
+•Ünlü giyim şirketi GAP e-ticaret sitelerinde kullanıcıların sepete ekledikleri 
+her ürün için anlık kargolama bilgisini göstermek amacıyla Redis’i tercih 
+etmiştir. 
+•Facebook memcache’i veritabanı yükünü azaltmak için kullanıyor. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 30/53 ---
+Memcached: NodeJS Uygulaması 
+•OSX için yükleme: 
+–brew install memcached 
+•Linux için yükleme: 
+–sudo apt-get install memcached 
+•OSX ile terminalde Memcached’i başlatma: 
+–memcached -l 127.0.0.1 -p 11211 -vv 
+•Linux için detaylı kurulum: 
+https://www.cyberciti.biz/faq/install-and-configure-memcached-on-
+ubuntu-linux18-04/ 
+•Windows için detaylı kurulum: 
+https://commaster.net/posts/installing-memcached-windows/ 
+•Memcached Docker İmajı: https://hub.docker.com/_/memcached 
+•Basit NodeJS Uygulaması 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 31/53 ---
+Redis: NodeJS Uygulaması 
+•OSX için yükleme: 
+–brew install redis 
+•Linux için yükleme: 
+–sudo apt-get install redis-server 
+•OSX ile terminalde Redis’i başlatma: 
+–redis-server 
+•Linux için system açıldığında Redis’i başlatma: 
+–sudo systemctl enable redis-server.service 
+•Windows için detaylı kurulum: 
+–https://redislabs.com/blog/redis-on-windows-8-1-and-previous-versions/ 
+–https://redislabs.com/blog/redis-on-windows-10/ 
+•Redis Docker İmajı: https://hub.docker.com/_/redis/ 
+•Basit NodeJS uygulaması 
+•Daha Kapsamlı NodeJS Uygulaması: 
+http://www.borakasmer.com/nodejs-uzerinde-redis-kullanimi-ve-refactoring/ 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 32/53 ---
+Redis: JWT Kara Listeleme 
+•Twitter kullandığınızı hayal edin. Oturum açın, bir tweet yazın, 
+sonra başka birinin tweetini retweetleyin. 
+•Her eylem için, söz konusu eylemi gerçekleştirmeden önce 
+kimliğinizin doğrulanması ve yetkilendirilmesi gerekir. 
+•Geleneksel yaklaşımda işler şu şekilde ilerler: 
+–Kullanıcı adınız ve şifreniz ile giriş yaparsınız. 
+–Sunucu önce kullanıcının kimliğini doğrular. 
+–Sunucu daha sonra bir oturum jetonu oluşturur ve bu jeton, kullanıcının 
+bilgileriyle birlikte bir veritabanında saklar. (Not: Bir oturum belirteci, şuna 
+benzer: fsaf12312dfsdf364351312srw12312312dasd1et3423r) 
+–Sunucu daha sonra size frontend mobil veya web uygulamasına bir oturum 
+jetonu gönderir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 33/53 ---
+Redis: JWT Kara Listeleme 
+•Geleneksel yaklaşımda işler şu şekilde ilerler (devam): 
+–Sonra bir tweet yazıp gönderdiğinizi varsayalım. Ardından, sunucunun kim 
+olduğunuzu tanımlayabilmesi için tweet'inizle birlikte uygulamanız oturum 
+jetonunu da (bir tanımlama bilgisi veya bir başlık aracılığıyla) gönderir. 
+–Sunucu oturum jetonunu aldığında, kullanıcının kim olduğunu bilmeyecektir, 
+bu nedenle, o jetondan gerçek kullanıcının bilgilerini (userId gibi) almak için 
+bunu veritabanına gönderir. 
+–Kullanıcı varsa ve bu eylemi yapmasına (yani bir tweet göndermesine) izin 
+varsa, sunucu eylemi yapmasına izin verir. 
+–Ve son olarak, frontende tweet'in gönderildiğini söyler. 
+•Burada veritabanına gidip jetonun kime ait olduğu bilgisini 
+sorgulamak yavaş bir iştir ve kullanıcının yaptığı her eylem için 
+tekrarlanması gerekir. 
+•Dolayısıyla, her bir API çağrısı, genel yanıt süresini yavaşlatabilen 
+en az iki yavaş DB çağrısına yol açar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 34/53 ---
+Redis: JWT Kara Listeleme 
+•Bu problem iki şekilde çözülebilir: 
+–1. Bir şekilde kullanıcılar için veritabanı aramasını tamamen ortadan kaldırmak 
+–2. Ek atlamanın önemli olmaması için ekstra veritabanı aramasını çok daha 
+hızlı yapmak. 
+•1. Yöntem için farklı yollar mevcuttur: 
+–Durumu sunucunun belleğinde saklayabilirsiniz. Ancak bu durum yalnızca 
+belirli bir sunucuda mevcut olduğundan, ölçeklendirdiğinizde sorunlara neden 
+olur.
+–"Yapışkan oturumlar/sticky session" kullanabilirsiniz. Burada, yük 
+dengeleyiciye, siz ölçeği büyüttükten sonra bile trafiği her zaman belirli bir 
+sunucuya yönlendirmesini söylersiniz. Yine bu, farklı ölçeklendirme sorunlarına 
+neden olur ve sunucu küçülürse (ölçek küçülür), tüm durumu kaybedersiniz. 
+–JWT kullanmak. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 35/53 ---
+Redis: JWT Kara Listeleme 
+•Şimdi JWT kullanımını inceleyelim. 
+•JWT, özellikle oturum olarak kullanıldığında, veritabanı aramasını 
+tamamen ortadan kaldırarak sorunu çözmeye çalışır. 
+•Ana fikir, kullanıcının bilgilerini oturum jetonunun kendisinde 
+depolamaktır. 
+•Bu nedenle, bazı uzun rasgele dizeler yerine, gerçek kullanıcı 
+bilgilerini oturum jetonunun kendisinde saklanır. 
+•Güvenliğini sağlamak için, yalnızca sunucu tarafından bilinen bir sır 
+kullanarak jeton parçasının imzalanmasını sağlanır. 
+•Bu nedenle, istemci ve sunucu, jetonun kullanıcı bilgisi kısmını 
+görebilse de, ikinci kısım, yani imzalanan kısım, yalnızca sunucu 
+tarafından doğrulanabilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 36/53 ---
+Redis: JWT Kara Listeleme 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 Jetonun pembe bölümü payload'a (kullanıcı bilgisi) sahiptir ve hem istemci hem de sunucu 
+tarafından görülebilir. Ancak mavi kısım gizli bir string ile, başlık ve yükün kendisi 
+kullanılarak imzalanır. Dolayısıyla, kullanıcı yükü kurcalarsa (farklı bir kullanıcının kimliğine 
+bürünürse), imza farklı olacak ve kimliği doğrulanmayacaktır. 
+
+--- Page 37/53 ---
+Redis: JWT Kara Listeleme 
+•JWT ile kimlik doğrulama aşamaları: 
+–Kullanıcı adı ve şifre ile giriş yapılır. Sunucu, veritabanını sorgulayarak kullanıcının 
+kimliğini doğrular. 
+–Sunucu daha sonra kullanıcının bilgilerini ve sırrını kullanarak bir JWT oturum jetonu 
+oluşturur (veritabanı dahil değildir). 
+–Sunucu daha sonra frontend uygulamaya bir JWT gönderir. Gelecekteki işlemler için, 
+kullanıcı her seferinde oturum açmak yerine kullanıcıyı tanımlayan JWT’yi gönderebilir. 
+–Bir JWT şuna benzer: <header>.<payload>.<signature> 
+–Ardından, bir tweet yazıp gönderdiğinizi varsayalım. 
+–Tweet'inizin metniyle birlikte gönderdiğinizde, sunucunun kim olduğunuzu 
+tanımlayabilmesi için uygulamanız JWT’yi de (bir tanımlama bilgisi veya bir başlık 
+aracılığıyla) gönderir. 
+–Sunucu JWT’yi aldığında, imzalı kısmı doğrulamak için sırrı kullanır ve yük kısmından 
+kullanıcı bilgilerini alır. Böylece DB çağrısını ortadan kaldırılır. 
+–İmza kontrol edilir, kontrol başarılı ise eylemi yapmalarına izin verir. Sonunda tweet'in 
+kaydedildiği frontende bildirilir. 
+–Her kullanıcı eylemi için sunucu yalnızca imzalanan kısmı doğrular, kullanıcı bilgilerini alır 
+ve kullanıcının bu eylemi yapmasına izin verir. Böylece DB çağrısını tamamen atlanır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 38/53 ---
+Redis: JWT Kara Listeleme 
+•Ancak JWT hakkında bilinmesi gereken ek ve önemli bir şey daha 
+var.
+•JWT kendisini sona erdirmek için bir son kullanma süresi kullanır. 
+Genellikle 5 dakika ile 30 dakika arasında ayarlanır. 
+•Bağımsız olduğu için kolayca iptal edilemez/geçersiz 
+kılınamaz/güncellenemez. Sorunun özü aslında burada yatmaktadır. 
+•JWT ile ilgili en büyük sorun, jeton iptal sorunudur. Süresi dolana 
+kadar çalışmaya devam ettiği için sunucunun onu iptal etmesinin 
+kolay bir yolu yoktur. 
+•Oturum kapatma, gerçekten oturumunuzu kapatmaz! 
+–Tweet attıktan sonra Twitter'dan çıkış yaptığınızı düşünün. Sunucudan çıkış 
+yaptığınızı düşünebilirsiniz, ancak durum böyle değil. Çünkü JWT bağımsızdır ve 
+süresi dolana kadar çalışmaya devam edecektir. Bu, 5 dakika veya 30 dakika veya 
+belirtecin bir parçası olarak ayarlanan süre ne olursa olsun olabilir. Dolayısıyla, birisi 
+bu süre içinde o jetona erişim elde ederse, süresi dolana kadar erişime devam 
+edebilir. 
+ Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 39/53 ---
+Redis: JWT Kara Listeleme 
+•Kullanıcıları engellemek, onları hemen engellemez! 
+–Twitter'ın veya gerçek kullanıcıların sistemi kullandığı bazı çevrimiçi gerçek zamanlı 
+oyunların moderatörü olduğunuzu hayal edin. Ve bir moderatör olarak, birisinin 
+sistemi kötüye kullanmasını hızlı bir şekilde engellemek istiyorsunuz. Yine aynı 
+sebepten bu işlemi yapamazsın. Engelledikten sonra bile, belirtecin süresi dolana 
+kadar kullanıcı sunucuya erişmeye devam edecektir. 
+•Eski veriler olabilir! 
+–Kullanıcının bir yönetici olduğunu ve daha az izne sahip normal bir kullanıcıya 
+indirgendiğini hayal edin. Yine, bu işlem hemen gerçekleşmeyecek ve kullanıcı, 
+belirtecin süresi dolana kadar yönetici olmaya devam edecektir. 
+•JWT'ler genellikle şifrelenmez, bu nedenle ortadaki adam saldırısı 
+gerçekleştirebilen ve JWT’yi ele geçiren herkes artık kimlik 
+doğrulama bilgilerinize sahiptir. MITM saldırısının yalnızca sunucu 
+ile istemci arasındaki bağlantıda tamamlanması gerektiği için bu 
+daha kolaydır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 40/53 ---
+Redis: JWT Kara Listeleme 
+•Her defasında JWT’nin durumsuz/statless olduğundan bahsederiz. 
+•Gerçek dünyadaki birçok uygulamada, sunucuların kullanıcının 
+IP'sini tutması ve hız sınırlaması ve IP beyaz listesi için API'leri 
+izlemesi gerekir. 
+•Bu nedenle, son derece hızlı bir veritabanı kullanmanız gerekecek. 
+Bir şekilde uygulamanızın JWT ile durumsuz hale geldiğini 
+düşünmek gerçekçi değildir. 
+•Popüler Çözüm: 
+–İptal edilen tokenların bir listesini bir veritabanında saklamak ve her arama için 
+kontrol etmek. 
+–Token, iptal edilenler listesinin bir parçasıysa, kullanıcının bir sonraki eylemi 
+gerçekleştirmesi engellenir. 
+–Ancak token iptal edilip edilmediğini kontrol etmek için DB'ye bir ekstra çağrı 
+yapmanız gerekir ve bu nedenle JWT’yi amacı dışında kullanmış olursunuz. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 41/53 ---
+Redis: JWT Kara Listeleme 
+•Sonuç: 
+–JWT, veritabanı aramasını ortadan kaldırmasına rağmen, bunu 
+yaparken güvenlik sorunları ve diğer karmaşıklıkları ortaya çıkarır. 
+Güvenlik ikilidir: ya güvenlidir ya da değildir. Bu nedenle, kullanıcı 
+oturumları için JWT kullanmayı tehlikeli hale getirir. 
+•Nerede kullanabilirim: 
+–Backend’de sunucudan sunucuya (veya mikro hizmetten mikro 
+hizmete) iletişim yaptığınız gereken ve bir hizmetin yetkilendirme 
+amacıyla farklı bir hizmete göndermek için bir JWT oluşturabileceği 
+senaryolar vardır. 
+–Kullanıcının e-postasını doğrulamak için bir JWT tek seferlik kısa 
+ömürlü bir token olarak gönderebileceğiniz parola sıfırlama gibi diğer 
+kullanım alanları da vardır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 42/53 ---
+Redis: JWT Kara Listeleme 
+•Peki JWT kullanamıyorsam ne yapmalıyım? 
+–Çözüm, JWT'yi oturum amacıyla hiç kullanmamaktır. Ancak bunun yerine, 
+geleneksel, savaş alanında test edilmiş/battle-tested yolu daha verimli bir şekilde 
+işletmek. 
+–Yani veritabanı aramasını o kadar hızlı (milisaniyenin altında) yapın ki, ek çağrı 
+önemli olmasın. 
+•Aramayı, önemli olmayacak kadar hızlı yapmak (savaş 
+alanında test edilmiş bir çözüm): 
+–Milisaniyelerin altında milyonlarca isteğe hizmet verebilecek kadar hızlı yapan 
+herhangi bir veritabanı var mı? 
+–Elbette var. Redis: Her gün milyarlarca kullanıcıya hizmet veren binlerce şirket tam 
+da bu amaç için Redis kullanıyor! 
+–Redis'i bir oturum/ssesion deposu olarak ve diğer veritabanlarını birincil veritabanı 
+olarak kullanmanız yeterlidir. 
+–Redis'i tüm veri katmanınız için birincil veritabanı olarak da kullanabilirsiniz. Bu 
+senaryoda, mimariniz çok daha basit hale gelir ve temel olarak her şey çok hızlı 
+hale gelir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 43/53 ---
+Redis: JWT Kara Listeleme 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 44/53 ---
+Redis: JWT Kara Listeleme 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+
+--- Page 45/53 ---
+Redis: JWT Kara Listeleme 
+•Peki JWT kullanmak istiyorsam ne yapmalıyım? 
+–Çözüm: Redis’i Tokenları kara listeye almak için kullanmak. 
+•JWT’de en büyük problem bir kullanıcının erişiminin nasıl iptal 
+edileceğidir. 
+•Elbette, JWT'lerin bir son kullanma süresi vardır ve istediğiniz kadar 
+kısa ömürlü olabilir. Ancak erişim belirtecinin süresi dolduğunda, 
+JWT geçersizdir ve istemcinin sunucunuzla yeniden kimlik 
+doğrulaması yapması gerekir. Bu da tabii ki kullanıcı deneyimine 
+olumsuz etki eder. 
+•Ancak kullanıcının kasıtlı olarak sisteminizden çıkış yaptığını 
+varsayalım? Ya da güvenliğiniz tehlikeye düştüğünden ve 
+korktuğunuz için onları engellemek mi istiyorsunuz? 
+•Yapamazsınız çünkü hâlâ süresi dolmamış bir tokenı varsa, hâlâ 
+erişim sağlayabilirler. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 46/53 ---
+Redis: JWT Kara Listeleme 
+•Bu sorunun bir çözümü var, ancak bazı ekstra işlemler yapılması 
+gerekir. Bir JWT kara listesi/reddetme listesi tutmayı gerektiren bir 
+tekniktir. 
+•Bir JWT kara listesi/reddetme listesi, artık sisteminize erişim 
+vermemesi gereken tokenların bir listesidir. 
+•Bu listeyi nerede tutacağınız size kalmıştır. Geleneksel bir veritabanı 
+kullanabilirsiniz. 
+•Ancak Redis gibi bir bellek içi veri önbelleği kullanmak çok daha iyi 
+bir yaklaşımdır. 
+•Bellek içi veri önbelleği, diskte depolanan verilere göre çok daha 
+hızlı ve daha öngörülebilir arama süreleri sağlar. 
+•Şimdi NodeJS, ExpressJS  ve Redis kullanarak kara listeleme 
+işlemini nasıl yapacağımızı görelim. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 47/53 ---
+Redis: JWT Kara Listeleme 
+•JWT Kara Listeleme İçin Adımlar: 
+–Öncelikle, etkin JWT'lerin bir listesini tutabilmeniz için Express sunucu uygulamanızı 
+başlatmanız ve Redis'i kurmanız gerekir. 
+–Bir JWT'nin depolanmasını ve  sonrasında iptalini test etmek için, bir kullanıcı 
+oluşturmanız ve bu kullanıcı için bir JWT oluşturmanın bir yoluna ihtiyacınız olacak. 
+–Kullanıcı uygulamanızla herhangi bir şey yapmaya çalıştığında, o JWT ile 
+kullanıcının kimliğini doğrulamalısınız. 
+–Bu üç aşamalı bir süreçtir. Öncelikle, JWT'nin sağlandığından emin olmalısınız. 
+–Ardından, sağlanan JWT'nin Redis'te depolanan kara liste/reddetme listesinde olup 
+olmadığını test etmelisiniz. 
+–Değilse, sonunda JWT'nin geçerli olup olmadığını doğrulamalısınız. 
+–Kullanıcı oluşturduğunuz güvenli rotayı ziyaret etmeye çalıştığında, sağladıkları JWT 
+önce kara liste/reddetme listesine göre kontrol edilmeli ve ardından erişim 
+verilmeden önce doğrulanmalıdır. 
+–Her şey yolunda gitse bile şu anda bir JWT'yi iptal etmenin bir yolu yoktur, bu 
+nedenle kara listede/reddetme listesinde hiçbir şey yoktur. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 48/53 ---
+Redis: JWT Kara Listeleme 
+•JWT Kara Listeleme İçin Adımlar (Devam): 
+–Bir kullanıcının oturumu kapatmasını sağlamak için bir rota oluşturulmalıdır. 
+–Bu rotaya ulaşıldığında, kullanıcının JWT’si Redis’te tutulmalıdır. 
+–Redis'i çok sayıda süresi dolmuş jetonla doldurmamak için anahtar, tokenın süresi 
+dolduğunda sona erecek şekilde ayarlanmalıdır. 
+–Artık kullanıcının JWT'si teknik olarak hala geçerlidir (süresi dolana kadar), ancak 
+kara listede/reddetme listede olduğu için sonraki isteklerde durdurulacaktır. 
+–Ancak, oturumu kapatmamış ve tokenı hâlâ geçerli olan bir kullanıcının erişimini 
+reddetmek istiyorsanız bu bir çözüm olmayacaktır. 
+–Çünkü o sırada kullanıcının erişim tokenın ne olduğunu bilemezsiniz ve bu nedenle 
+önbelleğe ne koyacağınızı bilemeyeceksiniz. 
+–Bu sorunu çözmek için de, bir kullanıcının kullanıcı kimliğini redis yoluyla kara 
+listeye alma ve JWT doğrulaması sırasında bu kara listeyi de kontrol etme özelliğini 
+eklemelisiniz. JWT kara listesinden farklı olarak, bu girişin kendisiyle ilişkilendirilmiş 
+bir son kullanma süresi olmayacaktır. 
+•Örnek Kod 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 49/53 ---
+Redis: JWT Kara Listeleme 
+•Peki bu yöntem iyi bir yöntem midir? Hayır. 
+•JWT'lerin en büyük avantajı oturum doğrulamasını hızlı yapmalarıdır. 
+Bir kara liste/reddetme listesi tutuyorsanız ve bunu her API çağrısında 
+sorgulamanız gerekiyorsa bu avantajı kaybedersiniz. 
+•Bunun yerine, hem JWT'lerin hem de opak tokenların güçlü yönlerini 
+birleştiren bir oturum yönetimi çözüm olabilir. 
+•JWT'nin süresi dolduğunda, istemci yeni bir JWT ve yeni bir opak 
+yenileme tokenı istemek için opak yenileme tokenı kullanır. Bu işlem, 
+yenileme tokenı döndürme (refresh token rotation) olarak bilinir. 
+•Bu yöntemle kullanıcı oturum açtığında, sunucu hem kısa ömürlü bir 
+JWT (erişim tokenı) hem de uzun ömürlü opak bir token (yenileme 
+jetonu) üretilir. 
+•Refresh Token ReactJS İçin Detaylı Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 50/53 ---
+Redis: JWT Kara Listeleme 
+•Bir kullanıcıya erişim verildiğinde, bu jetonların her ikisi de 
+istemciye gönderilir. 
+•Kullanıcı bir kaynağa erişmeye çalıştığında, her istekle birlikte JWT 
+erişim tokenı gönderir. 
+•Peki iki farklı token ve yenileme tokenı döndürmenin 
+avantajları ve dezavantajları nelerdir? 
+–Erişimi iptal etmek istiyorsanız, yapmanız gereken tek şeyin sunucu tarafında opak 
+tokenı geçersiz kılmak olmasıdır. 
+–Ardından, yenileme uç noktası çağrıldığında, sunucu opak tokenı arar, süresinin 
+dolduğunu görür ve kullanıcının oturumunu kapatır. 
+–İstemcide hala geçerli olan JWT'ler sorunu hala çözümsüzdür. 
+–Ancak, bu JWT'leri çok daha kısa ömürlü hale getirebileceğiniz için (sadece birkaç 
+dakika bile), çok büyük bir sorun olmayacaktır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 51/53 ---
+Örnek Redis Kullanımları 
+•Sepet Yönetimi: Kullanıcı sepete ürün eklediğinde veriler Redis’te tutulur. 
+DB’ye yazmadan hızlı şekilde sepet güncellenir. 
+•Oturum (Session) Saklama: Kullanıcı giriş yaptıktan sonra session bilgisi 
+Redis’e kaydedilir. Sunucu restart olsa bile oturum devam edebilir. 
+•Rate Limiting (Giriş deneme limiti): Bir IP’nin kaç kez login denediği 
+Redis’te sayılır. Limit aşılırsa geçici olarak engellenir. 
+•Stok Geçici Rezervasyon: Ürün sepete eklenince Redis’te geçici stok 
+düşülür. Ödeme yapılmazsa stok geri iade edilir. 
+•Bildirim Kuyruğu: Kayıt, sipariş gibi işlemler Redis kuyruğa atılır. Arka 
+planda bu veriler işlenip email/SMS gönderilir. 
+•Online Kullanıcı Listesi: Giriş yapan kullanıcılar Redis set içinde tutulur. 
+Kimlerin aktif olduğu anlık gösterilebilir. 
+•Önbellek (Ürün listeleme): Sık kullanılan ürün listeleri Redis’te 
+cache’lenir. Veritabanı yükü azaltılır ve hız artar. 
+•Sipariş durum takibi: Sipariş “hazırlanıyor / kargoda / teslim edildi” gibi 
+durumları Redis’te tutulur. Durum değişiklikleri anlık frontend’e yansır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 52/53 ---
+Örnek Redis Kullanımları 
+•Sipariş durum takibi: Sipariş “hazırlanıyor / kargoda / teslim edildi” gibi 
+durumları Redis’te tutulur. Durum değişiklikleri anlık frontend’e yansır. 
+•API sonuçlarını önbellekleme: Sık kullanılan API response’ları Redis’te 
+saklanır. Aynı request gelirse direkt Redis’ten döner. 
+•Ürün öneri sistemi : “Bunları da beğenebilirsiniz” algoritma sonuçları Redis’te 
+tutulur. Her kullanıcı için hızlı öneri üretilir. 
+•Kullanıcı aktivite takibi: Kullanıcının son yaptığı işlemler Redis listesinde 
+tutulur. “Son görüntülenen ürünler” gibi özellik yapılır. 
+•Lokasyon bazlı aktif kullanıcılar: Belirli şehir/ülkeye göre online kullanıcı sayısı 
+Redis set ile tutulur. Harita veya analiz ekranı oluşturulur. 
+•Sık sorgu optimizasyonu: Admin panelindeki istatistikler Redis’te cache’lenir. 
+Her istek DB’ye gitmez, sadece belirli aralıklarla güncellenir. 
+•Gerçek zamanlı chat mesajlaşma: Mesajlar Redis pub/sub ile anlık olarak 
+diğer kullanıcılara iletilir. Veri kalıcı DB’ye ayrıca yazılır, Redis sadece iletim için 
+kullanılır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+--- Page 53/53 ---
+Kaynaklar 
+•https://memcached.org 
+•https://redis.io 
+•https://stackshare.io/memcached 
+•https://stackshare.io/redis 
+•https://techstacks.io/tech/redis 
+•https://techstacks.io/tech/memcached 
+•Windows için Memcached: https://github.com/jefyt/memcached-windows 
+•Awesome Redis: 
+–https://github.com/JamzyWang/awesome-redis 
+–https://github.com/weyoss/awesome-redis 
+–https://github.com/rmacduff/awesome-redis 
+•Türkçe Kaynaklar: 
+–https://aws.amazon.com/tr/memcached/ 
+–https://aws.amazon.com/tr/redis/ 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2026 
+
+================================================================================
+FILE: YM 6. ders.pptx.pdf
+================================================================================
+
+Total pages: 25
+
+
+--- Page 1/25 ---
+[No text extracted from this page]
+
+--- Page 2/25 ---
+RabbitMQ 
+•Mesajlaşma denildiğinde aklınıza e-posta ya da anlık mesaj 
+gönderme (IM) işlemleri gelebilir. 
+•RabbitMQ gibi sistemlerin anlık mesajlaşma yazılımlarıyla 
+benzerlikleri olmasına rağmen farklı temelleri vardır. 
+•Örneğin çevrimdışı tüketiciler (consumer) e-posta ve IM’de olduğu 
+gibi mesajları depolayabilirler. Ancak mesajlar etiketler (tags) 
+aracılığı ile yönlendirilir. 
+•IM’den farklı olarak AMQP gönderen ve alıcıyı birbirinden gizler. 
+•İkisinde de mesajlar bire-çok, bire-bir biçimlerinde dağıtılabilir. 
+•RabbitMQ bir teslimat sistemidir. Yani bir nevi postanedir. Paket alıp 
+gönderebilirsiniz. 
+•Uygulamalar ve uygulamaların konuştuğu sunucular arasında 
+bulunan bir yönlendiricidir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 3/25 ---
+RabbitMQ 
+•RabbitMQ’da iki temel kavram vardır: Producer (Üretici), Consumer 
+(Tüketici). Üreticiler mesaj oluşturur ve RabbitMQ’da yayınlar. 
+•Mesaj’ın iki temal bileşeni vardır: Payload, Label 
+•Payload: iletmek istediniz veridir.  Label veriyi tanımlar: Mesajın 
+kopyasını kim alacak gibi. 
+•Tüketiciler RabbitMQ’ya bağlanır ve bir kuyruğa (posta kutusu gibi) 
+abone olur. 
+•Mesaj geldiğinde RabbitMQ bu mesajı abone olan tüketicilere 
+gönderir. 
+•Mesaj tüketiciye ulaştığında tüketicide sadece payload kısmı kalır. 
+•RabbitMQ mesajın kimden geldiğini bildirmez. 
+•Eğer mesajın kimin tarafından gönderildiği öğrenilmek isteniyorsa 
+bu bilgiyi AMQP mesajını oluşturan üreticinin payloada eklemesi 
+gerekir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 4/25 ---
+RabbitMQ 
+•Geliştirdiğiniz uygulamalar hem mesaj oluşturan bir üretici, hem de 
+mesajları alan birer tüketici olabilir. Aynı zamanda ikisi arasında 
+geçiş yapabilir. 
+•Tüm bu işlemlerin gerçekleşmesi için bir kanal (channel) 
+oluşturulması gerekir. 
+•RabbitMQ’ya bağlandığınızda aslında bir TCP bağlantısı 
+oluşturursunuz. 
+•TCP bağlantısı açık olduğu müddetçe uygulamanız bir AMQP kanalı 
+oluşturur. 
+•Bu kanal gerçek TCP bağlantısı içinde sanal bir bağlantıdır ve AMQP 
+komutları bu kanalda çalıştırılır. 
+•TCP bağlantısı içinde oluşturulabilecek kanalın bir sınırı yoktur. 
+•Her kanalın benzersiz ID’si vardır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 5/25 ---
+RabbitMQ 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 6/25 ---
+RabbitMQ 
+•Bir AMQP mesajının başarıyla yönlendirilmesi için 3 temel parça 
+vardır: 
+–Exchange: Üreticilerin mesajlarını yayınladıkları yer. 
+–Binding: Mesajların kuyruklara nasıl yönlendirileceğini belirler. 
+–Queue: Mesajların toplandığı, tüketicilerin mesajları aldığı yer. AMQP’nin temel 
+yapı taşıdır. 
+•Kuyruğa bir mesaj eklemek için mesajı Exchange’e yollamanız 
+gerekir. Mesajlar kuyruklara belli kurallar dahilinde eklenir. Bu 
+kurallara routing keys (yönlendirme anahtarları) denir. 
+•Bir kuyruk exchange’e routing key aracılığı ile bağlanır. Birden fazla 
+kuyruk oluşturulabilir. Bunun için farklı türde exchange’ler vardır. 
+–Direct: Anahtar eşleşirse mesaj ilgili kuyruğa yollanır. 
+–Fanout: Alınan mesajı bağlı kuyruklara yayar (multicast). 
+–Topic: Farklı kaynaklardan gelen mesajları kuyruklar. 
+•Virtual Host (VHost): Mini sanal RabbitMQ’lar oluşturmanızı sağlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 7/25 ---
+RabbitMQ 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 8/25 ---
+RabbitMQ 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 9/25 ---
+RabbitMQ 
+•RabbitMQ kullanan bazı firmalar: 
+–Reddit 
+–9Gag 
+–MIT
+–Hepsiburada 
+–BlaBlaCar 
+–Trivago 
+–Bitbucket 
+–Vine
+•AMQP Awesome: https://github.com/xinchen10/awesome-amqp 
+•RabbitMQ Kütüphaneler, Araçlar: 
+https://www.rabbitmq.com/devtools.html 
+•RabbitMQ Resmi Docker İmajı: https://hub.docker.com/_/rabbitmq 
+•RabbitMQ Docker ile .Net Core Örneğ i
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 10/25 ---
+RabbitMQ: NodeJS Mikroservis Örneği 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+Örnek Kod 
+
+--- Page 11/25 ---
+Apache Kafka 
+•2010 yılında Linkedin tarafından geliştirilmiştir. 
+•2012’den itibaren açık kaynak kodludur. 
+•Pub/Sub (Yayımla/Üye Ol) mantığı ile çalışan dağıtık mesajlaşma 
+sistemidir. 
+•Çok büyük miktarda veriyi kaldırabilecek bir kuyruk yapısına 
+sahiptir. 
+•Hem çevrimiçi hem de çevrimdışı mesajlaşma yeteneği vardır. 
+•Kafka tüm mesajları diskte tutar. 
+•Veri kaybını önlemek için de mesajların kopyalarını alarak 
+kümelerde (cluster) tutabilir. 
+•Büyük miktarda farklı tüketicilere hizmet verebilecek kapasitededir. 
+•Zookeeper isimli senkronizasyon servisi üzerine inşa edilmiştir. 
+•Gerçek zamanlı veri analizi yapmayı sağlayan Apache Spark ve 
+Apache Storm yazılımlarına da çok iyi entegre olabilmektedir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 12/25 ---
+Apache Kafka 
+•Hızlıdır, sıfır kesintiyi (downtime) ve sıfır veri kaybını garanti eder. 
+•Saniyede 2 milyon veri yazabilir. 
+•Kafka tüm gerçek zamanlı veri akışlarını kaldırabilecek düzeyde bir 
+platformdur. 
+•Düşük gecikmeli mesaj iletimini destekler ve donanımsal sorunlarda 
+bile hataya dayaklılığı garanti eder. 
+•Kafka’nın bir çok kullanım alanı vardır. Bunlardan bazıları: 
+–Metrikler: Genelde operasyonel izleme verisi için kullanılır. Dağıtık 
+uygulamalardan istatistiki veriler toplayıp, merkezi operasyonel veri 
+akışı sağlamak gibi. 
+–Log Toplama: Bir organizasyon içinde kullanılan farklı servislerden 
+log toplama ve bu logların farklı tüketiciler tarafından kullanılabilmesi 
+için uygun bir formatta sunulması amacıyla kullanılabilir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 13/25 ---
+Apache Kafka 
+•Kafka’nın Kullanım Alanları (Devam): 
+–Veri Akışı İşleme: Storm ve Spark gibi veri okuyan, işleyen yazan 
+popüler yazılım çatılarıyla entegre olarak çalışarak veri akışı işlemeyi 
+sağlar. 
+–Web Sitesi Aktivite İzleme: Sayfa görüntülemeleri, arama gibi 
+yüksek hacimli web sitesi aktivitelerini gerçek zamanlı izlemek, işlemek 
+ve raporlamak amacıyla kullanılabilir. 
+–Olay İzleme: Uygulamaların durumlarının zaman sıralı kayıtlar 
+şeklinde tutulması amacıyla kullanılabilir. 
+–Commit Log: Dağıtık sistemler için harici bir commit logu olarak 
+kullanılabilir. Devre dışı olan düğümlerin tekrar ayağa kaldırılması için 
+yapılacak yeniden senkronizasyon işleminde bu loglar devreye girer. 
+•Kafya’yı anlamak için topic, broker, producer, consumer, partition, 
+partition offset, replica, leader, follower, cluster gibi kavramları 
+bilmemiz gerekir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 14/25 ---
+Apache Kafka 
+•Topic (Konu): Belli bir kategorideki veri kümelerine denir. Veri 
+konular halinde depolanır. 
+•Partition (Bölüm): Konular bölümlere ayrılır. Kafka her konu için 
+en az bir tane bölüm ayırır. Her bölüm sıralı ve değiştirilemez olan 
+mesajlar içerir. Bölümler aynı büyüklükte dosya parçaları kümesi 
+olarak geliştirilmiştir. 
+•Partition Offset (Bölüm Ofseti): Bölümlendirilmiş her mesajın 
+benzersiz sıra numarasıdır. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+
+--- Page 15/25 ---
+Apache Kafka 
+•Replicas of Partition (Bölümlerin Kopyaları): Bölümlerin 
+yedeğidir. Yedeklerde okuma yazma olmaz. Veri kaybını önlemek 
+için kullanılır. 
+•Broker (Aracı):  Kafka sistemlerinin en temel bileşenidir, Kafka 
+kümesinde çalışan her bir sunucu/servise broker denir. Konu ve 
+bölümleri tutarlar. Bir çok broker bir araya gelerek kümeleri 
+(cluster) oluşturur. 
+•Kafka Cluster (Küme): Kafka’nın birden fazla aracısı varsa buna 
+Kafka kümesi denir. Mesaj verilerinin kopyalarının oluşturulması ve 
+sürdürülebilirliğin yönetilmesinden sorumludurlar. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 16/25 ---
+Apache Kafka 
+•Producer (Üretici): Bir veya daha fazla konuya sahip mesajların 
+yayınlanmasından sorumludur. Üreticiler veriyi aracılara gönderir. 
+Ne zaman bir üretici aracıya mesaj yayınlarsa, aracı basitçe bu 
+mesajı dosyanın son parçasına ekler. Yani mesaj bir bölüme eklenir. 
+Üreticiler aynı zamanda seçtikleri bölümlere de mesajları 
+gönderebilir. 
+•Consumer (Tüketici): Tüketiciler aracılardan verileri okurlar. Bir 
+veya daha fazla konuya abone olurlar. Yayınlanan mesajları 
+aracıdan çekerek tüketirler. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+
+--- Page 17/25 ---
+Apache Kafka 
+•Leader (Lider): Bir bölümde gerçekleşen tüm okuma ve 
+yazma işlemlerinden sorumlu düğümdür. Her bölümün lider 
+olarak davranan bir sunucusu vardır. 
+•Follower (Takipçi): Liderin talimatlarını yerine getiren 
+düğümlerdir. Lider devre dışı kalırsa takipçilerinden birisi 
+otomatik olarak lider olur. Takipçi normal bir tüketici gibi 
+davranır. Mesajları çeker kendi veri deposunu günceller. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+
+--- Page 18/25 ---
+Apache Kafka 
+Kaynak: TutorialPoint Apache Kafka  Tutorial 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 19/25 ---
+Apache Kafka 
+•Kafka’nın kullanım oranı günden güne artmaktadır. 
+•Fortune 500 firmalarının üçte biri Kafya’yı kullanmaktadır. 
+•Top 10 seyahat firmaları 
+•Top 10 bankanın 7’si 
+•Top 10 sigorta şirketlerinin 8’i 
+•Top 10 telekom şirketlerinin 9’u 
+•Linkedin, Microsoft, Netflix gibi firmalar Kafka ile günlük 4 virgüllü 
+sayılarda (1,000,000,000,000) mesaj işleyebilmektedir. 
+•Yüksek hacimli işlemleri kaldıracak düzeyde olmayan RabbitMQ, 
+AMQP, JMS gibi sistemlerin yerine kullanılır. 
+•Linkedin: Aktivite verisi ve operasyonel metriklerde kullanıyor. 
+•Twitter: Apache Storm’a entegre olarak kullanıyor. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 20/25 ---
+RabbitMQ vs Apache Kafka 
+•Kafka 2011, RabbitMQ 2007 ortaya çıkmıştır. 
+•İkisi de açık kaynak kodludur. 
+•RabbitMQ Erlang diliyle yazılmıştır. 
+•Kafka Scala dili ile yazılmıştır. 
+•Kafka’nın kurumsal desteği yoktur. 
+•RabbitMQ AMQP uyumludur. Kafka uyumlu değildir. 
+•Kafka resmi olarak Java istemcisi desteklerken RabbitMQ Java, 
+.Net/C#, Erlang’ı destekler. 
+•Kafka’nın ana depolama birimi disk, RabbitMQ’nun ise RAM’dir. 
+•Kafka’da Kuyruk içeriğinin tamamı zorunlu olarak depolanır. 
+•RabbitMQ’da ise bu işlem geçici ve seçimliktir. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 21/25 ---
+RabbitMQ vs Apache Kafka 
+•Kafka’da mesaj içeriği süre ya da boyut aşımında silinir. 
+•RabbitMQ’da mesaj tüketim onaylandıktan hemen sonra silinir. 
+•Kafka kuyruk verisini sıkıştırabilir. 
+•RabbitMQ’nun sıkıştırma yeteneği yoktur. 
+•Kafka aynı veriseti için farklı tüketicileri destekler. 
+•RabbitMQ bunu kuyruğun kopyasını oluşturarak yapar. 
+•RabbitMQ’nun Kafka’ya göre daha karmaşık bir rotalama yöntemi 
+vardır. 
+•RabbitMQ kendi kendine yetebilecek kapasitededir. 
+•Kafka’nın çalışması için ZooKeeper zorunludur. 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 22/25 ---
+RabbitMQ vs Apache Kafka 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 23/25 ---
+Apache Kafka 
+•Kafka kullanan bazı firmalar: 
+–Linkedin 
+–Yahoo 
+–Twitter 
+–Uber
+–Spotify 
+–Apple 
+–Migros Türkiye 
+–Netflix 
+–DigitalOcean 
+–The New York Times 
+–Trivago 
+–Hepsiburada 
+–Booking.com 
+–Tumblr 
+–BlaBlaCar 
+•Diğer Liste 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 24/25 ---
+Apache Kafka 
+•Ek Kaynaklar: 
+–Cloudera Kafka Guide 
+–Awesome Kafka-1: https://github.com/infoslack/awesome-kafka 
+–Awesome Kafka-2: https://github.com/dharmeshkakadia/awesome-kafka 
+–Awesome Kafka-3: https://github.com/semantalytics/awesome-kafka 
+–Introduction to Apache Kafka 
+–Clouderable Kafta Tutorial 
+–Microsoft Apache Kafka Rehberi 
+–Apache Kafka Sitesi: http://kafka.apache.org 
+–Kafka Docker İmajı: https://hub.docker.com/r/wurstmeister/kafka/ 
+–Apache Kafka ReactJS, Nodejs, Socket.io Örnek Uygulama 
+–Apache Kafka .Net Core Uygulaması 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 
+
+--- Page 25/25 ---
+Apache Kafka: NodeJS Örnek 
+Ders Sunumu - Doç. Dr. Asım Sinan Yüksel / Yazılım Mühendisliği 2025 Örnek Kod 
+

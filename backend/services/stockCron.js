@@ -3,6 +3,7 @@ const StockAlert = require('../models/StockAlert');
 const Product = require('../models/Product');
 const Notification = require('../models/Notification');
 const { getSellers } = require('./dataForSeoApi');
+const { sendNotification } = require('./notificationProducer');
 
 const runStockCron = async () => {
   console.log('[Cron] 🕒 Stok kontrol işlemi başlatılıyor...');
@@ -45,15 +46,28 @@ const runStockCron = async () => {
           await product.save();
 
           for (const u of users) {
-            await Notification.create({
-              user: u.userId,
+            // RabbitMQ kuyruğuna bildirim gönder
+            const sent = await sendNotification({
+              userId: u.userId,
               type: 'stock',
               title: 'Stok Alarmı',
               message: `Takip ettiğiniz "${product.name}" tekrar stoklara girdi! Hemen inceleyin.`,
               productId: product._id,
               productName: product.name,
-              read: false
             });
+
+            // RabbitMQ kullanılamıyorsa doğrudan veritabanına yaz (fallback)
+            if (!sent) {
+              await Notification.create({
+                user: u.userId,
+                type: 'stock',
+                title: 'Stok Alarmı',
+                message: `Takip ettiğiniz "${product.name}" tekrar stoklara girdi! Hemen inceleyin.`,
+                productId: product._id,
+                productName: product.name,
+                read: false
+              });
+            }
              
             await StockAlert.findByIdAndDelete(u.alertId);
           }

@@ -1,0 +1,26 @@
+# Bağımlılıklar (Docker içinde yeniden yüklenir)
+node_modules
+
+# Hata ayıklama günlükleri
+npm-debug.log
+npm-debug.log.*
+
+# Ortam değişkenleri (güvenlik)
+.env
+.env.local
+.env.*.local
+
+# Versiyon kontrol
+.git
+.gitignore
+
+# IDE ve editör dosyaları
+.vscode
+.idea
+*.swp
+*.swo
+
+# Docker dosyaları (iç içe build önleme)
+Dockerfile
+docker-compose*.yml
+.dockerignore

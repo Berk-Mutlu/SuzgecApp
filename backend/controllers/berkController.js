@@ -3,6 +3,7 @@ const Product = require('../models/Product');
 const Comparison = require('../models/Comparison');
 const SearchHistory = require('../models/SearchHistory');
 const jwt = require('jsonwebtoken');
+const { sendNotification } = require('../services/notificationProducer');
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET || 'suzgec_secret_key', { expiresIn: '30d' });
@@ -18,6 +19,14 @@ exports.registerUser = async (req, res) => {
     if (userExists) return res.status(400).json({ success: false, message: 'Bu e-posta adresi zaten kullanımda' });
     const user = await User.create({ email, password, firstName, lastName });
     if (user) {
+      // RabbitMQ: Yeni kullanıcıya "Hoş Geldiniz" bildirimi gönder
+      await sendNotification({
+        userId: user._id,
+        type: 'system',
+        title: 'Hoş Geldiniz! 🎉',
+        message: `Merhaba ${firstName || 'Kullanıcı'}, Süz-Geç ailesine hoş geldiniz! Fiyat takibi, stok alarmları ve akıllı karşılaştırma özelliklerimizi keşfedin.`,
+      });
+
       res.status(201).json({ success: true, _id: user._id, email: user.email, token: generateToken(user._id) });
     } else {
       res.status(400).json({ success: false, message: 'Geçersiz kullanıcı verisi' });

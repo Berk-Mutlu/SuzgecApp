@@ -1,0 +1,35 @@
+# Bağımlılıklar (Docker içinde yeniden yüklenir)
+node_modules
+
+# Next.js derleme çıktısı
+.next
+
+# Hata ayıklama günlükleri
+npm-debug.log
+npm-debug.log.*
+
+# Ortam değişkenleri (güvenlik)
+.env
+.env.local
+.env.*.local
+
+# Versiyon kontrol
+.git
+.gitignore
+
+# Android/Capacitor (Docker'da gerekli değil)
+android
+
+# IDE ve editör dosyaları
+.vscode
+.idea
+*.swp
+*.swo
+
+# Docker dosyaları (iç içe build önleme)
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# TypeScript derleme bilgisi
+tsconfig.tsbuildinfo

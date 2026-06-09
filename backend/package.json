@@ -1,20 +1,24 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Süz-Geç Backend API - Akıllı Fiyat Karşılaştırma Platformu",
   "main": "index.js",
   "scripts": {
+    "start": "node api/index.js",
+    "dev": "node api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "B²E Ekibi",
   "license": "ISC",
   "dependencies": {
     "@google/genai": "^1.48.0",
+    "amqplib": "^0.10.5",
     "axios": "^1.6.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "ioredis": "^5.4.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
     "node-cron": "^4.2.1"

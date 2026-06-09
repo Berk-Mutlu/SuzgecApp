@@ -1,5 +1,6 @@
 const List = require('../models/List');
 const Review = require('../models/Review');
+const { sendNotification } = require('../services/notificationProducer');
 
 exports.getLists = async (req, res) => {
   try {
@@ -157,6 +158,18 @@ exports.createReview = async (req, res) => {
       productId,
       rating,
       comment
+    });
+
+    // RabbitMQ: Yorum eklendi bildirimi gönder
+    const Product = require('../models/Product');
+    const product = await Product.findById(productId);
+    await sendNotification({
+      userId: req.user._id,
+      type: 'system',
+      title: 'Yorum Eklendi ✍️',
+      message: `"${product ? product.name : 'Ürün'}" için ${rating} yıldızlı değerlendirmeniz başarıyla eklendi. Teşekkürler!`,
+      productId: productId,
+      productName: product ? product.name : null,
     });
 
     res.status(201).json({ success: true, data: review, message: 'Değerlendirmeniz başarıyla eklendi.' });

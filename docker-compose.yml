@@ -1,0 +1,115 @@
+# ===================================
+# SuzgecApp - Docker Compose Yapılandırması
+# Tüm servisleri tek komutla yönet
+# ===================================
+
+services:
+  # ----- Veritabanı: MongoDB -----
+  mongodb:
+    image: mongo:7
+    container_name: suzgec-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - suzgec-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ----- Önbellek: Redis -----
+  redis:
+    image: redis:7-alpine
+    container_name: suzgec-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - suzgec-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----- Mesaj Kuyruğu: RabbitMQ -----
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: suzgec-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"     # AMQP protokolü
+      - "15672:15672"   # Yönetim paneli
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - suzgec-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ----- Backend: Node.js + Express API -----
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: suzgec-backend
+    restart: unless-stopped
+    ports:
+      - "5000:9000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/suzgecdb
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - JWT_SECRET=${JWT_SECRET:-super-secret-key-degistirin}
+      - NODE_ENV=development
+      - PORT=9000
+    networks:
+      - suzgec-network
+
+  # ----- Frontend: Next.js Web Uygulaması -----
+  frontend:
+    build:
+      context: ./frontend/suzgec-app
+      dockerfile: Dockerfile
+    container_name: suzgec-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:9000
+    networks:
+      - suzgec-network
+
+# ----- Kalıcı Veri Birimleri -----
+volumes:
+  mongo_data:
+    driver: local
+  redis_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+
+# ----- Ağ Yapılandırması -----
+networks:
+  suzgec-network:
+    driver: bridge

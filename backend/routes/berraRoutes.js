@@ -1,5 +1,6 @@
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
+const { cacheMiddleware } = require('../middleware/redisMiddleware');
 const {
   getStockAlerts, createStockAlert, deleteStockAlert,
   getPriceAlerts, createPriceAlert, updatePriceAlert, deletePriceAlert,
@@ -29,7 +30,8 @@ priceAlertsRouter.route('/:alertId').put(updatePriceAlert).delete(deletePriceAle
 
 const notificationsRouter = express.Router();
 notificationsRouter.use(protect);
-notificationsRouter.route('/').get(getNotifications);
+// Redis: Bildirimleri önbellekle (TTL: 60 saniye)
+notificationsRouter.route('/').get(cacheMiddleware(60), getNotifications);
 notificationsRouter.route('/:id/read').put(markNotificationRead);
 notificationsRouter.route('/:id').delete(deleteNotification);
 

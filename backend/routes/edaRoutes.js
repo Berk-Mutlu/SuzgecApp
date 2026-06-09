@@ -1,5 +1,6 @@
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
+const { cacheMiddleware } = require('../middleware/redisMiddleware');
 const { 
   getLists, getList, createList, updateList, deleteList, 
   getListItems, addListItem, removeListItem,
@@ -27,7 +28,8 @@ listsRouter.route('/:listId/items/:itemId')
   .delete(removeListItem);
 
 const reviewsRouter = express.Router();
-reviewsRouter.get('/:productId', getProductReviews);
+// Redis: Ürün yorumlarını önbellekle (TTL: 3 dakika)
+reviewsRouter.get('/:productId', cacheMiddleware(180), getProductReviews);
 reviewsRouter.post('/:productId', protect, createReview);
 reviewsRouter.put('/:reviewId', protect, updateReview);
 reviewsRouter.delete('/:reviewId', protect, deleteReview);
