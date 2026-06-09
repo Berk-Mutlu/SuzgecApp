@@ -13,37 +13,46 @@ const getChannel = async () => {
   if (channel) return channel;
 
   const rabbitmqUrl = process.env.RABBITMQ_URL || 'amqp://localhost:5672';
+  const maxRetries = 5;
 
-  try {
-    connection = await amqp.connect(rabbitmqUrl);
-    channel = await connection.createChannel();
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      connection = await amqp.connect(rabbitmqUrl);
+      channel = await connection.createChannel();
 
-    // Bildirim kuyruğunu oluştur (yoksa)
-    await channel.assertQueue(NOTIFICATION_QUEUE, {
-      durable: true, // Sunucu yeniden başlatılsa bile kuyruk korunur
-    });
+      // Bildirim kuyruğunu oluştur (yoksa)
+      await channel.assertQueue(NOTIFICATION_QUEUE, {
+        durable: true, // Sunucu yeniden başlatılsa bile kuyruk korunur
+      });
 
-    console.log('[RabbitMQ] ✅ RabbitMQ bağlantısı kuruldu.');
-    console.log(`[RabbitMQ] 📬 "${NOTIFICATION_QUEUE}" kuyruğu hazır.`);
+      console.log('[RabbitMQ] ✅ RabbitMQ bağlantısı kuruldu.');
+      console.log(`[RabbitMQ] 📬 "${NOTIFICATION_QUEUE}" kuyruğu hazır.`);
 
-    // Bağlantı kapandığında temizle
-    connection.on('close', () => {
-      console.warn('[RabbitMQ] ⚠️ Bağlantı kapandı.');
-      channel = null;
-      connection = null;
-    });
+      // Bağlantı kapandığında temizle ve yeniden bağlan
+      connection.on('close', () => {
+        console.warn('[RabbitMQ] ⚠️ Bağlantı kapandı. Yeniden bağlanılıyor...');
+        channel = null;
+        connection = null;
+        setTimeout(() => getChannel(), 5000);
+      });
 
-    connection.on('error', (err) => {
-      console.error('[RabbitMQ] ❌ Bağlantı hatası:', err.message);
-      channel = null;
-      connection = null;
-    });
+      connection.on('error', (err) => {
+        console.error('[RabbitMQ] ❌ Bağlantı hatası:', err.message);
+        channel = null;
+        connection = null;
+      });
 
-    return channel;
-  } catch (error) {
-    console.warn('[RabbitMQ] ⚠️ RabbitMQ bağlantısı kurulamadı:', error.message);
-    console.warn('[RabbitMQ] ⚠️ Bildirimler doğrudan veritabanına yazılacak.');
-    return null;
+      return channel;
+    } catch (error) {
+      console.warn(`[RabbitMQ] ⚠️ Bağlantı denemesi ${attempt}/${maxRetries} başarısız: ${error.message}`);
+      if (attempt < maxRetries) {
+        console.log(`[RabbitMQ] ⏳ ${5} saniye sonra tekrar denenecek...`);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      } else {
+        console.warn('[RabbitMQ] ⚠️ Tüm denemeler başarısız. Bildirimler doğrudan veritabanına yazılacak.');
+        return null;
+      }
+    }
   }
 };
 
