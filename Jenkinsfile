@@ -58,7 +58,26 @@ pipeline {
             }
         }
 
-        // ----- Aşama 3: Docker İmajları Derleme -----
+        // ----- Aşama 3: Docker Soket Yetkisi -----
+        stage('Docker Permission') {
+            steps {
+                echo '🔑 Docker soket yetkisi kontrol ediliyor...'
+                script {
+                    if (isUnix()) {
+                        sh '''
+                            if ! docker info > /dev/null 2>&1; then
+                                echo "Docker soketi erişilemez, yetki düzeltiliyor..."
+                                sudo chmod 666 /var/run/docker.sock || chmod 666 /var/run/docker.sock || true
+                            fi
+                            echo "✅ Docker erişimi hazır."
+                            docker version --format "Docker {{.Server.Version}}"
+                        '''
+                    }
+                }
+            }
+        }
+
+        // ----- Aşama 4: Docker İmajları Derleme -----
         stage('Docker Build') {
             steps {
                 echo '🐳 Docker imajları derleniyor...'
