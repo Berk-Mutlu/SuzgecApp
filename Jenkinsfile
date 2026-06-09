@@ -67,9 +67,9 @@ pipeline {
                 dir('frontend/suzgec-app') {
                     script {
                         if (isUnix()) {
-                            sh 'npm run build'
+                            sh 'npm install typescript --save-dev && npm run build'
                         } else {
-                            bat 'npm run build'
+                            bat 'npm install typescript --save-dev && npm run build'
                         }
                     }
                 }
@@ -82,9 +82,9 @@ pipeline {
                 echo '🐳 Docker imajları derleniyor...'
                 script {
                     if (isUnix()) {
-                        sh 'docker-compose build --no-cache'
+                        sh 'docker compose build --no-cache'
                     } else {
-                        bat 'docker-compose build --no-cache'
+                        bat 'docker compose build --no-cache'
                     }
                 }
             }
@@ -96,9 +96,9 @@ pipeline {
                 echo '🚀 Servisler başlatılıyor...'
                 script {
                     if (isUnix()) {
-                        sh 'docker-compose up -d'
+                        sh 'docker compose up -d'
                     } else {
-                        bat 'docker-compose up -d'
+                        bat 'docker compose up -d'
                     }
                 }
             }
@@ -141,9 +141,9 @@ pipeline {
             echo '❌ Pipeline başarısız oldu! Temizlik yapılıyor...'
             script {
                 if (isUnix()) {
-                    sh 'docker-compose down --remove-orphans || true'
+                    sh 'docker compose down --remove-orphans || true'
                 } else {
-                    bat 'docker-compose down --remove-orphans || exit 0'
+                    bat 'docker compose down --remove-orphans || exit 0'
                 }
             }
         }
